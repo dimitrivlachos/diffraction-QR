@@ -11,12 +11,12 @@ mkdir -p out
 
 python diffraction.py \
     "https://dials.github.io/documentation/tutorials/index.html" \
-    --size-mm 23.5 --check -o out/dials.svg
+    --size-mm 23.5 --logo --check -o out/dials.svg
 
 python diffraction.py \
     "https://xia2.github.io" \
-    --size-mm 23.5 --check -o out/xia2.svg
+    --size-mm 23.5 --logo --check -o out/xia2.svg
 
 python diffraction.py \
     "https://www.diamond.ac.uk/Instruments/Mx/MX-Data-Analysis/Interpreting-Experiment-Feedback.html" \
-    --size-mm 29.4 --check -o out/ispyb.svg
+    --size-mm 29.4 --logo --check -o out/ispyb.svg

@@ -44,6 +44,16 @@ strip is centred on a module boundary, half a module from the nearest
 sampling point, so a strip narrower than a module never reaches one; it
 only trims the edges of spots, and the decoder never looks there.
 
+An optional logo sits in the centre on a white disc. The logo is light
+to the decoder, so every dark module it covers is an error for the error
+correction to repair, and the decoder gives no warning as that budget
+runs out: the blur margin holds steady as the logo grows, then the code
+stops decoding outright. The logo is therefore budgeted by the share of
+data modules it clears, kept to about half of what error correction can
+absorb, and a logo that would clear more, or reach a finder, a timing
+row or an off-centre alignment pattern, is refused. A centre alignment
+pattern is drawn over the logo instead.
+
 The faint speckle drawn in light modules must stay well clear of the
 decoder's binarisation threshold, so it is kept both tiny and pale. No
 decode check is performed here; ``margin.py`` measures how much blur a
@@ -62,6 +72,7 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal, NamedTuple
+from xml.etree import ElementTree as ET
 
 import qrcode
 from qrcode.constants import ERROR_CORRECT_H
@@ -136,6 +147,34 @@ ICE_SPOT_CAP = 1.0
 PANEL_COLUMNS = 4
 PANEL_ROWS = 8
 
+# The traced Diamond logo, used when --logo is given without a path.
+DEFAULT_LOGO = Path(__file__).resolve().parent / "assets" / "diamond-logo.svg"
+
+# Logo diameter as a fraction of the symbol's side. The blur margin does
+# not fade as a logo grows; it falls off a cliff, from 0.375 to no decode
+# at all, once about a quarter of the data modules are cleared (versions
+# 6 to 12 at 0.52, version 3 at 0.40). So the logo is budgeted by the
+# share it clears instead: 0.3 clears at most about 13%, half of what
+# error correction can repair, leaving the rest for print and camera.
+LOGO_FRACTION = 0.3
+
+# Largest share of the data modules a logo may clear; above it the build
+# is refused. Version 3 stopped decoding at 22%, the earliest cliff swept,
+# and at 16% the largest allowed logo still kept σ >= 0.4 on versions 3,
+# 6, 9 and 12; the default size stays under it from version 2 up.
+LOGO_MAX_CLEARED = 0.16
+
+# White ring between the logo and the nearest spot, in module pitches.
+LOGO_CLEARANCE = 0.5
+
+# Largest spot radius any layer draws, in module pitches; a module whose
+# centre lies within this of the clear disc is cleared, so no spot is
+# cut by the disc's edge.
+MAX_SPOT_RADIUS = 0.5
+
+# Namespace of SVG elements, declared on any logo nested into the code.
+SVG_NAMESPACE = "http://www.w3.org/2000/svg"
+
 # URL encoded when none is given on the command line.
 DEFAULT_URL = "https://dials.github.io"
 
@@ -159,6 +198,7 @@ class DiffractionStyle:
     ice_rings: bool = True
     streaks: bool = True
     panel_gaps: bool = True
+    logo: str | None = None
     falloff: Literal["wilson", "radial", "none"] = "wilson"
 
     spot_colour: str = "#202945"
@@ -172,6 +212,7 @@ class DiffractionStyle:
     wilson_b: float = WILSON_B
     streak_strength: float = 0.4
     panel_gap_colour: str = "#d3d8e3"
+    logo_fraction: float = LOGO_FRACTION
     panel_gap_width: float = 0.3
     ice_ring_colour: str = "#e8ebf1"
     ice_ring_width: float = 0.8
@@ -437,6 +478,132 @@ def _ice_ring_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[
     return out
 
 
+def _logo_clear_radius(grid: CodeGrid, style: DiffractionStyle) -> float | None:
+    """Return the radius, in modules, of the white disc behind the logo, or
+    None without a logo."""
+    if style.logo is None:
+        return None
+    return style.logo_fraction * grid.size / 2.0 + LOGO_CLEARANCE
+
+
+def _logo_fit(grid: CodeGrid, fraction: float) -> tuple[float, bool]:
+    """Return the share of data modules a logo of ``fraction`` clears, and
+    whether its clear disc keeps off every finder, timing row and alignment
+    pattern but a centre one, which is drawn over the logo."""
+    clear = fraction * grid.size / 2.0 + LOGO_CLEARANCE
+    reach = clear + MAX_SPOT_RADIUS
+    centre = grid.size / 2.0
+    data = [
+        (x, y)
+        for y in range(grid.size)
+        for x in range(grid.size)
+        if (x, y) not in grid.reserved
+    ]
+    cleared = sum(
+        math.hypot(x + 0.5 - centre, y + 0.5 - centre) < reach for x, y in data
+    )
+
+    # Patterns as (left, top, right, bottom) in module edges: finder and
+    # alignment squares, then the two timing lines between the finders.
+    patterns = [
+        (x - half, y - half, x + half + 1, y + half + 1)
+        for centres, half in (
+            (grid.finders, FINDER_HALF_WIDTH),
+            (grid.alignments, ALIGNMENT_HALF_WIDTH),
+        )
+        for x, y in centres
+        if (x, y) != (grid.centre, grid.centre)
+    ]
+    patterns += [(8, 6, grid.size - 8, 7), (6, 8, 7, grid.size - 8)]
+    clear_of_patterns = all(
+        math.hypot(
+            max(left - centre, 0.0, centre - right),
+            max(top - centre, 0.0, centre - bottom),
+        )
+        >= clear
+        for left, top, right, bottom in patterns
+    )
+    return cleared / len(data), clear_of_patterns
+
+
+def _check_logo_fits(grid: CodeGrid, style: DiffractionStyle) -> None:
+    """Refuse a logo that clears too much or reaches a pattern, naming the
+    largest size, to two decimals, that fits this code."""
+    if style.logo is None:
+        return
+    share, clear_of_patterns = _logo_fit(grid, style.logo_fraction)
+    if share <= LOGO_MAX_CLEARED and clear_of_patterns:
+        return
+    fits = [
+        f / 100
+        for f in range(1, 100)
+        if _logo_fit(grid, f / 100)[0] <= LOGO_MAX_CLEARED
+        and _logo_fit(grid, f / 100)[1]
+    ]
+    largest = max(fits, default=0.0)
+    reason = (
+        f"clears {share:.0%} of the data modules, above {LOGO_MAX_CLEARED:.0%}"
+        if share > LOGO_MAX_CLEARED
+        else "reaches a finder, timing or alignment pattern"
+    )
+    raise ValueError(
+        f"a logo {style.logo_fraction:g} of the width {reason}; "
+        f"this version {grid.version} code takes at most {largest:g}"
+    )
+
+
+def _logo_svg(path: str, x: float, y: float, side: float) -> str:
+    """Return the SVG at ``path`` nested as a ``side``-wide square at (x, y).
+
+    The file's children are copied into a nested <svg> carrying its
+    viewBox, so the logo stays vector and keeps its own coordinates; the
+    namespaces it uses are declared on the nested element.
+    """
+    ET.register_namespace("", SVG_NAMESPACE)
+    root = ET.parse(path).getroot()
+    view_box = root.get("viewBox")
+    if view_box is None:
+        view_box = f"0 0 {root.get('width')} {root.get('height')}"
+    nested = ET.Element(
+        f"{{{SVG_NAMESPACE}}}svg",
+        {
+            "x": f"{x:.3f}",
+            "y": f"{y:.3f}",
+            "width": f"{side:.3f}",
+            "height": f"{side:.3f}",
+            "viewBox": view_box,
+        },
+    )
+    nested.extend(list(root))
+
+    # Drop the file's indentation so the logo is one line, like every other
+    # element of the code.
+    for element in nested.iter():
+        if element.text is not None and not element.text.strip():
+            element.text = None
+        if element.tail is not None and not element.tail.strip():
+            element.tail = None
+    return " ".join(ET.tostring(nested, encoding="unicode").split())
+
+
+def _logo_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]:
+    """Draw a white disc over the layers beneath, then the logo inside it.
+
+    The spot layer has already cleared every module whose spot could reach
+    the disc; the disc covers the ice rings and panel gaps. The pattern
+    layer draws afterwards, so a centre alignment pattern lands on top.
+    """
+    clear = _logo_clear_radius(grid, style)
+    if clear is None:
+        return []
+    centre = grid.size / 2.0
+    side = style.logo_fraction * grid.size
+    return [
+        f'<circle cx="{centre:g}" cy="{centre:g}" r="{clear:.3f}" fill="#fff"/>',
+        _logo_svg(style.logo, centre - side / 2.0, centre - side / 2.0, side),
+    ]
+
+
 def _gap_positions(size: int, panels: int) -> list[int]:
     """Return the module boundaries nearest the joins between ``panels``
     equal panels across a symbol ``size`` modules wide."""
@@ -542,12 +709,21 @@ def _spot_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]
     rng = random.Random(seed)
     ring_radii = _ice_ring_radii(grid, style) if style.ice_rings else []
     ring_half_width = style.ice_ring_width / 2.0 / grid.corner_distance
+    clear = _logo_clear_radius(grid, style)
+    reach = None if clear is None else clear + MAX_SPOT_RADIUS
     out = []
     for y in range(grid.size):
         for x in range(grid.size):
             if (x, y) in grid.reserved:
                 continue
             cx, cy = x + 0.5, y + 0.5
+
+            # Modules near the logo draw nothing, but their random numbers
+            # are still taken so every other spot keeps its size.
+            cleared = (
+                reach is not None
+                and math.hypot(cx - grid.size / 2.0, cy - grid.size / 2.0) < reach
+            )
 
             # Dark modules: large spots at the centre shrinking towards the
             # edge, jittered, and never below the safe sampling diameter.
@@ -568,19 +744,21 @@ def _spot_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]
                 strength = style.streak_strength if style.streaks else 0.0
                 length = min(d * (1.0 + strength * r), max(d, STREAK_CAP))
                 angle = math.degrees(math.atan2(y - grid.centre, x - grid.centre))
-                out.append(
-                    _spot_svg(cx, cy, d, length, angle + 90.0, style.spot_colour)
-                )
+                if not cleared:
+                    out.append(
+                        _spot_svg(cx, cy, d, length, angle + 90.0, style.spot_colour)
+                    )
 
             # Light modules: occasional faint speckle, scattered off centre.
             elif style.speckle and rng.random() < style.speckle_probability:
                 sx = cx + rng.uniform(-SPECKLE_SCATTER, SPECKLE_SCATTER)
                 sy = cy + rng.uniform(-SPECKLE_SCATTER, SPECKLE_SCATTER)
-                out.append(
-                    f'<circle cx="{sx:.2f}" cy="{sy:.2f}" '
-                    f'r="{style.speckle_diameter / 2:.3f}" '
-                    f'fill="{style.speckle_colour}"/>'
-                )
+                if not cleared:
+                    out.append(
+                        f'<circle cx="{sx:.2f}" cy="{sy:.2f}" '
+                        f'r="{style.speckle_diameter / 2:.3f}" '
+                        f'fill="{style.speckle_colour}"/>'
+                    )
     return out
 
 
@@ -605,6 +783,7 @@ LAYERS: tuple[Layer, ...] = (
     _ice_ring_layer,
     _spot_layer,
     _panel_gap_layer,
+    _logo_layer,
     _pattern_layer,
 )
 
@@ -624,6 +803,7 @@ def build(
     """
     style = style or DiffractionStyle()
     grid = _encode(url)
+    _check_logo_fits(grid, style)
 
     # A white page the size of the symbol plus its quiet zone, with the
     # layers drawn inside a group shifted by the quiet zone.
@@ -685,6 +865,21 @@ def main(argv: list[str] | None = None) -> None:
         default=defaults.falloff,
         help="how spot size falls off from the centre",
     )
+    features.add_argument(
+        "--logo",
+        nargs="?",
+        const=str(DEFAULT_LOGO),
+        default=defaults.logo,
+        metavar="SVG",
+        help="a square SVG logo in the centre; the Diamond logo when no path given",
+    )
+    features.add_argument(
+        "--logo-size",
+        type=float,
+        default=defaults.logo_fraction,
+        metavar="FRACTION",
+        help="logo diameter as a fraction of the code's width",
+    )
     args = parser.parse_args(argv)
     style = dataclasses.replace(
         defaults,
@@ -692,6 +887,8 @@ def main(argv: list[str] | None = None) -> None:
         ice_rings=args.ice_rings,
         streaks=args.streaks,
         panel_gaps=args.panel_gaps,
+        logo=args.logo,
+        logo_fraction=args.logo_size,
         falloff=args.falloff,
     )
 
