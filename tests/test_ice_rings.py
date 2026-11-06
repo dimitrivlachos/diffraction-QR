@@ -142,7 +142,7 @@ def test_ice_rings_only_grow_spots_up_to_the_cap() -> None:
         return [float(r) for r in re.findall(r'r="([\d.]+)" fill="#202945"/>', svg)]
 
     # Streaks off on both sides, so every spot is a circle with one radius.
-    round_spots = dataclasses.replace(STYLE, streak=0.0)
+    round_spots = dataclasses.replace(STYLE, streaks=False)
     plain = spot_radii(
         build(URL, style=dataclasses.replace(round_spots, ice_rings=False)).svg
     )

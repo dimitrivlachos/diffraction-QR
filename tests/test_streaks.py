@@ -37,7 +37,9 @@ def _spots(svg: str) -> dict[tuple[str, str], tuple[float, float, float | None]]
 # The across-radius width of every spot must equal its round diameter, so
 # the module's own sampling point is covered exactly as before streaking.
 def test_streaks_keep_each_spot_width() -> None:
-    round_spots = _spots(build(URL, style=dataclasses.replace(STYLE, streak=0.0)).svg)
+    round_spots = _spots(
+        build(URL, style=dataclasses.replace(STYLE, streaks=False)).svg
+    )
     streaked = _spots(build(URL).svg)
     assert round_spots.keys() == streaked.keys(), "streaks moved or dropped spots"
     for centre, (half_length, half_width, _) in streaked.items():

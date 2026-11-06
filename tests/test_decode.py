@@ -24,7 +24,7 @@ URL_VERSIONS = {
 URLS = list(URL_VERSIONS)
 
 # The pre-Wilson look: radial falloff and round spots.
-RADIAL = DiffractionStyle(falloff="radial", streak=0.0)
+RADIAL = DiffractionStyle(falloff="radial", streaks=False)
 
 # SHA-256 of build("https://dials.github.io", seed=0).svg with the Wilson
 # falloff at B = 20 Å² and tangential streaks, recorded when the streaks

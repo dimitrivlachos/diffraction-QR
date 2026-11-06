@@ -48,6 +48,7 @@ scanner before it is printed.
 from __future__ import annotations
 
 import argparse
+import dataclasses
 import logging
 import math
 import random
@@ -141,19 +142,23 @@ class DiffractionStyle:
     in mm.
     """
 
+    # Optional features, each switched independently; with all of them off
+    # the code is plain uniform dots with ring finders.
+    speckle: bool = True
+    ice_rings: bool = True
+    streaks: bool = True
+    falloff: Literal["wilson", "radial", "none"] = "wilson"
+
     spot_colour: str = "#202945"
     quiet_zone: int = 4
     spot_diameter_centre: float = 0.92
     spot_diameter_edge: float = 0.58
     spot_jitter: float = 0.12
-    speckle: bool = True
     speckle_colour: str = "#b7b7b7"
     speckle_diameter: float = 0.10
     speckle_probability: float = 0.35
-    falloff: Literal["wilson", "radial"] = "wilson"
     wilson_b: float = WILSON_B
-    streak: float = 0.4
-    ice_rings: bool = True
+    streak_strength: float = 0.4
     ice_ring_colour: str = "#e8ebf1"
     ice_ring_width: float = 0.8
     wavelength_a: float = WAVELENGTH_A
@@ -442,8 +447,12 @@ def _falloff_diameter(r: float, style: DiffractionStyle) -> float:
     falloff interpolates on intensity, rescaled so the centre takes
     spot_diameter_centre and the corner module (r = 1) spot_diameter_edge
     whatever the B factor; B shapes the curve but never moves its ends.
+    With no falloff every spot takes the midpoint of the two, keeping the
+    overall ink coverage close to the falloff versions.
     """
     centre, edge = style.spot_diameter_centre, style.spot_diameter_edge
+    if style.falloff == "none":
+        return (centre + edge) / 2.0
     if style.falloff == "radial":
         return centre + (edge - centre) * r**FALLOFF_EXPONENT
 
@@ -504,7 +513,8 @@ def _spot_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]
 
                 # Streak across the radius: the radial axis keeps d, the
                 # tangential axis lengthens with radius up to the cap.
-                length = min(d * (1.0 + style.streak * r), max(d, STREAK_CAP))
+                strength = style.streak_strength if style.streaks else 0.0
+                length = min(d * (1.0 + strength * r), max(d, STREAK_CAP))
                 angle = math.degrees(math.atan2(y - grid.centre, x - grid.centre))
                 out.append(
                     _spot_svg(cx, cy, d, length, angle + 90.0, style.spot_colour)
@@ -596,10 +606,38 @@ def main(argv: list[str] | None = None) -> None:
         action="store_true",
         help="measure the blur margin of the result (needs the decode harness)",
     )
+
+    # One switch per optional feature, defaulting to the style's own value.
+    defaults = DiffractionStyle()
+    features = parser.add_argument_group("optional features")
+    for name, help_text in (
+        ("speckle", "faint speckle in light modules"),
+        ("ice_rings", "ice rings and the larger spots that sit on them"),
+        ("streaks", "spots streaked across the radius"),
+    ):
+        features.add_argument(
+            f"--{name.replace('_', '-')}",
+            action=argparse.BooleanOptionalAction,
+            default=getattr(defaults, name),
+            help=help_text,
+        )
+    features.add_argument(
+        "--falloff",
+        choices=["wilson", "radial", "none"],
+        default=defaults.falloff,
+        help="how spot size falls off from the centre",
+    )
     args = parser.parse_args(argv)
+    style = dataclasses.replace(
+        defaults,
+        speckle=args.speckle,
+        ice_rings=args.ice_rings,
+        streaks=args.streaks,
+        falloff=args.falloff,
+    )
 
     logging.basicConfig(level=logging.INFO, format="%(message)s")
-    styled = build(args.url, seed=args.seed, size_mm=args.size_mm)
+    styled = build(args.url, seed=args.seed, style=style, size_mm=args.size_mm)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(styled.svg)
     logger.info(
