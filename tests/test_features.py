@@ -21,28 +21,38 @@ URLS = [
     "Interpreting-Experiment-Feedback.html",
 ]
 
-# Every combination of the three switches and the three falloffs.
+# The on/off feature switches of DiffractionStyle.
+SWITCHES = ("speckle", "ice_rings", "streaks", "panel_gaps")
+
+# Every combination of the switches and the three falloffs.
 COMBINATIONS = [
-    dataclasses.replace(
-        STYLE, speckle=speckle, ice_rings=ice, streaks=streaks, falloff=falloff
+    dataclasses.replace(STYLE, falloff=falloff, **dict(zip(SWITCHES, on, strict=True)))
+    for *on, falloff in itertools.product(
+        *[(True, False)] * len(SWITCHES), ("wilson", "radial", "none")
     )
-    for speckle, ice, streaks, falloff in itertools.product(
-        (True, False), (True, False), (True, False), ("wilson", "radial", "none")
-    )
+]
+
+# The margin is costly to measure, so it covers every switch combination
+# under the default falloff and each other falloff with every switch on.
+MARGIN_COMBINATIONS = [
+    style
+    for style in COMBINATIONS
+    if style.falloff == "wilson" or all(getattr(style, n) for n in SWITCHES)
 ]
 
 
 def _label(style: DiffractionStyle) -> str:
     """Name a combination for the test id."""
-    on = [n for n in ("speckle", "ice_rings", "streaks") if getattr(style, n)]
+    on = [n for n in SWITCHES if getattr(style, n)]
     return "+".join(on + [style.falloff])
 
 
 # Markup each feature leaves in the SVG, so its absence can be checked.
 FEATURE_MARKUP = {
     "speckle": f'fill="{STYLE.speckle_colour}"',
-    "ice_rings": "<clipPath",
+    "ice_rings": '<clipPath id="ice-clip"',
     "streaks": "<ellipse",
+    "panel_gaps": '<clipPath id="gap-clip"',
 }
 
 
@@ -74,6 +84,7 @@ def test_all_features_off_gives_plain_uniform_dots() -> None:
         speckle=False,
         ice_rings=False,
         streaks=False,
+        panel_gaps=False,
         falloff="none",
         spot_jitter=0.0,
     )
@@ -98,7 +109,7 @@ def test_every_combination_decodes(url: str, style: DiffractionStyle) -> None:
 
 
 # Every combination must also keep the camera headroom the default has.
-@pytest.mark.parametrize("style", COMBINATIONS, ids=_label)
+@pytest.mark.parametrize("style", MARGIN_COMBINATIONS, ids=_label)
 def test_every_combination_keeps_the_margin(style: DiffractionStyle) -> None:
     url = URLS[1]
     sigma = blur_margin(build(url, style=style).svg, url)

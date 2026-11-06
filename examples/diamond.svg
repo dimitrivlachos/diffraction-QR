@@ -632,6 +632,19 @@
 <circle cx="28.61" cy="32.34" r="0.050" fill="#b7b7b7"/>
 <ellipse cx="30.50" cy="32.50" rx="0.500" ry="0.374" transform="rotate(138.8 30.50 32.50)" fill="#202945"/>
 <ellipse cx="31.50" cy="32.50" rx="0.500" ry="0.361" transform="rotate(136.8 31.50 32.50)" fill="#202945"/>
+<clipPath id="gap-clip"><path d="M0 0H33V33H0ZM0 0v7h7v-7zM26 0v7h7v-7zM0 26v7h7v-7zM24 24v5h5v-5z"/></clipPath>
+<g clip-path="url(#gap-clip)" fill="#d3d8e3">
+<rect x="7.85" y="0" width="0.3" height="33"/>
+<rect x="15.85" y="0" width="0.3" height="33"/>
+<rect x="24.85" y="0" width="0.3" height="33"/>
+<rect x="0" y="3.85" width="33" height="0.3"/>
+<rect x="0" y="7.85" width="33" height="0.3"/>
+<rect x="0" y="11.85" width="33" height="0.3"/>
+<rect x="0" y="15.85" width="33" height="0.3"/>
+<rect x="0" y="20.85" width="33" height="0.3"/>
+<rect x="0" y="24.85" width="33" height="0.3"/>
+<rect x="0" y="28.85" width="33" height="0.3"/>
+</g>
 <circle cx="3.5" cy="3.5" r="3" fill="none" stroke="#202945" stroke-width="1"/>
 <circle cx="3.5" cy="3.5" r="1.5" fill="#202945"/>
 <circle cx="29.5" cy="3.5" r="3" fill="none" stroke="#202945" stroke-width="1"/>

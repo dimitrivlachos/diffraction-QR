@@ -23,13 +23,13 @@ URL_VERSIONS = {
 }
 URLS = list(URL_VERSIONS)
 
-# The pre-Wilson look: radial falloff and round spots.
-RADIAL = DiffractionStyle(falloff="radial", streaks=False)
+# The pre-Wilson look: radial falloff, round spots and no panel gaps.
+RADIAL = DiffractionStyle(falloff="radial", streaks=False, panel_gaps=False)
 
 # SHA-256 of build("https://dials.github.io", seed=0).svg with the Wilson
-# falloff at B = 20 Å² and tangential streaks, recorded when the streaks
-# were added.
-SEED_0_SHA256 = "cbc7321158af267d6de416ec8453200d380db717e47205a2cc7389bfb2ed3244"
+# falloff at B = 20 Å², tangential streaks and panel gaps, recorded when
+# the panel gaps were added.
+SEED_0_SHA256 = "8cf8d9e4e64ce5648248a79e6527f8eb28aebb2b1be36d6835af8493136e74a7"
 
 # The same render with falloff="radial", recorded at commit 42969c6 when
 # the ice rings were added; the spot jitter and speckle still match the
@@ -69,7 +69,7 @@ def test_url_encodes_at_its_intended_version(url: str) -> None:
 def test_finder_shape_follows_the_version_cut_over(url: str) -> None:
     svg = build(url).svg
     if URL_VERSIONS[url] <= ROUND_FINDER_MAX_VERSION:
-        assert "<rect x=" not in svg, "small code drew square finders"
+        assert 'width="6" height="6"' not in svg, "small code drew square finders"
     else:
         assert 'r="3"' not in svg, "large code drew circular finders"
 

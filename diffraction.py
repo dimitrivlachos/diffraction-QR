@@ -38,6 +38,12 @@ sit on a ring grow a little, as reflections overlapping a ring do on a
 real image; light modules are never darkened beyond the ring's pale
 tint, so the decoder still reads them as light.
 
+The same virtual detector supplies panel gaps: the dead strips between
+the modules of an Eiger2 XE 16M, drawn pale grey over the spots. Each
+strip is centred on a module boundary, half a module from the nearest
+sampling point, so a strip narrower than a module never reaches one; it
+only trims the edges of spots, and the decoder never looks there.
+
 The faint speckle drawn in light modules must stay well clear of the
 decoder's binarisation threshold, so it is kept both tiny and pale. No
 decode check is performed here; ``margin.py`` measures how much blur a
@@ -125,6 +131,11 @@ ICE_SPOT_BOOST = 0.25
 # spot, so spots on a ring do not merge with their neighbours.
 ICE_SPOT_CAP = 1.0
 
+# Module layout of the virtual detector, an Eiger2 XE 16M: 4 columns by
+# 8 rows of modules, with a dead strip at every join.
+PANEL_COLUMNS = 4
+PANEL_ROWS = 8
+
 # URL encoded when none is given on the command line.
 DEFAULT_URL = "https://dials.github.io"
 
@@ -147,6 +158,7 @@ class DiffractionStyle:
     speckle: bool = True
     ice_rings: bool = True
     streaks: bool = True
+    panel_gaps: bool = True
     falloff: Literal["wilson", "radial", "none"] = "wilson"
 
     spot_colour: str = "#202945"
@@ -159,6 +171,8 @@ class DiffractionStyle:
     speckle_probability: float = 0.35
     wilson_b: float = WILSON_B
     streak_strength: float = 0.4
+    panel_gap_colour: str = "#d3d8e3"
+    panel_gap_width: float = 0.3
     ice_ring_colour: str = "#e8ebf1"
     ice_ring_width: float = 0.8
     wavelength_a: float = WAVELENGTH_A
@@ -378,14 +392,10 @@ def _encode(url: str) -> CodeGrid:
     )
 
 
-def _ice_ring_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]:
-    """Draw the ice rings as pale annuli, clipped to the symbol.
-
-    The clip is the symbol square with the finder and alignment squares cut
-    out, so the quiet zone and the patterns' light gaps stay white.
-    """
-    if not style.ice_rings:
-        return []
+def _symbol_clip(grid: CodeGrid, clip_id: str) -> str:
+    """Return a clipPath covering the symbol with the finder and alignment
+    squares cut out, so a layer drawn through it leaves the quiet zone and
+    the patterns' light gaps untouched."""
 
     # One subpath per reserved square, wound against the symbol square so
     # each is a hole under both the nonzero and even-odd rules; cairosvg
@@ -399,9 +409,20 @@ def _ice_ring_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[
         for x, y in centres
     ]
     n = grid.size
+    return (
+        f'<clipPath id="{clip_id}"><path d="M0 0H{n}V{n}H0Z{"".join(holes)}"/>'
+        "</clipPath>"
+    )
+
+
+def _ice_ring_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]:
+    """Draw the ice rings as pale annuli, clipped to the symbol."""
+    if not style.ice_rings:
+        return []
+
+    n = grid.size
     out = [
-        f'<clipPath id="ice-clip"><path d="M0 0H{n}V{n}H0Z{"".join(holes)}"/>'
-        "</clipPath>",
+        _symbol_clip(grid, "ice-clip"),
         f'<g clip-path="url(#ice-clip)" fill="none" stroke="{style.ice_ring_colour}" '
         f'stroke-width="{style.ice_ring_width:g}">',
     ]
@@ -412,6 +433,37 @@ def _ice_ring_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[
         out.append(
             f'<circle cx="{n / 2:g}" cy="{n / 2:g}" r="{r * grid.corner_distance:.3f}"/>'
         )
+    out.append("</g>")
+    return out
+
+
+def _gap_positions(size: int, panels: int) -> list[int]:
+    """Return the module boundaries nearest the joins between ``panels``
+    equal panels across a symbol ``size`` modules wide."""
+    return [round(k * size / panels) for k in range(1, panels)]
+
+
+def _panel_gap_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]:
+    """Draw the dead strips between detector modules, clipped to the symbol.
+
+    Each strip is centred on a module boundary, so it never comes nearer
+    than half a module less half its width to a sampling point.
+    """
+    if not style.panel_gaps:
+        return []
+
+    n, w = grid.size, style.panel_gap_width
+    out = [
+        _symbol_clip(grid, "gap-clip"),
+        f'<g clip-path="url(#gap-clip)" fill="{style.panel_gap_colour}">',
+    ]
+
+    # Vertical strips between module columns, then horizontal strips
+    # between module rows.
+    for x in _gap_positions(n, PANEL_COLUMNS):
+        out.append(f'<rect x="{x - w / 2:g}" y="0" width="{w:g}" height="{n}"/>')
+    for y in _gap_positions(n, PANEL_ROWS):
+        out.append(f'<rect x="0" y="{y - w / 2:g}" width="{n}" height="{w:g}"/>')
     out.append("</g>")
     return out
 
@@ -549,7 +601,12 @@ def _pattern_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[s
 Layer = Callable[[CodeGrid, DiffractionStyle, int], list[str]]
 
 # Layers in drawing order, bottom first.
-LAYERS: tuple[Layer, ...] = (_ice_ring_layer, _spot_layer, _pattern_layer)
+LAYERS: tuple[Layer, ...] = (
+    _ice_ring_layer,
+    _spot_layer,
+    _panel_gap_layer,
+    _pattern_layer,
+)
 
 
 def build(
@@ -614,6 +671,7 @@ def main(argv: list[str] | None = None) -> None:
         ("speckle", "faint speckle in light modules"),
         ("ice_rings", "ice rings and the larger spots that sit on them"),
         ("streaks", "spots streaked across the radius"),
+        ("panel_gaps", "dead strips between detector modules"),
     ):
         features.add_argument(
             f"--{name.replace('_', '-')}",
@@ -633,6 +691,7 @@ def main(argv: list[str] | None = None) -> None:
         speckle=args.speckle,
         ice_rings=args.ice_rings,
         streaks=args.streaks,
+        panel_gaps=args.panel_gaps,
         falloff=args.falloff,
     )
 
