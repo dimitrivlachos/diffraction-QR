@@ -6,7 +6,7 @@ import hashlib
 
 import pytest
 
-from diffraction import ROUND_FINDER_MAX_VERSION, build
+from diffraction import ROUND_FINDER_MAX_VERSION, DiffractionStyle, build
 from margin import MARGIN_FLOOR, RENDER_SCALES, blur_margin, decodes, plain_svg, render
 
 # Real URLs mapped to the QR version each encodes at, level H. Versions
@@ -23,10 +23,18 @@ URL_VERSIONS = {
 }
 URLS = list(URL_VERSIONS)
 
-# SHA-256 of build("https://dials.github.io", seed=0).svg with ice rings,
-# recorded when they were added; the spot jitter and speckle still match
-# the original script at commit e44782f.
-SEED_0_SHA256 = "73c6c3d622a3b195a8785e1f3b1c737025c72321e4c86ae481c2504c246c5844"
+RADIAL = DiffractionStyle(falloff="radial")
+
+# SHA-256 of build("https://dials.github.io", seed=0).svg with the Wilson
+# falloff at B = 20 Å², recorded when it became the default.
+SEED_0_SHA256 = "f515d237e08b93eec64f19036d862ae88d32b3a5bc5e2d54333cf361459c4f22"
+
+# The same render with falloff="radial", recorded at commit 42969c6 when
+# the ice rings were added; the spot jitter and speckle still match the
+# original script at commit e44782f.
+SEED_0_RADIAL_SHA256 = (
+    "73c6c3d622a3b195a8785e1f3b1c737025c72321e4c86ae481c2504c246c5844"
+)
 
 
 # The default render must not change by accident; a deliberate change
@@ -35,6 +43,14 @@ def test_default_render_is_unchanged() -> None:
     svg = build("https://dials.github.io", seed=0).svg
     digest = hashlib.sha256(svg.encode()).hexdigest()
     assert digest == SEED_0_SHA256, "seed-0 SVG differs from the recorded render"
+
+
+# The radial falloff stays selectable for comparison, and selecting it
+# must reproduce the render from before the Wilson falloff exactly.
+def test_radial_falloff_reproduces_the_earlier_render() -> None:
+    svg = build("https://dials.github.io", seed=0, style=RADIAL).svg
+    digest = hashlib.sha256(svg.encode()).hexdigest()
+    assert digest == SEED_0_RADIAL_SHA256, "radial render drifted from 42969c6"
 
 
 # Each URL must keep landing on its intended version, or the tests

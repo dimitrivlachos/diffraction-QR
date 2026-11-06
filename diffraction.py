@@ -54,7 +54,7 @@ import random
 from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import NamedTuple
+from typing import Literal, NamedTuple
 
 import qrcode
 from qrcode.constants import ERROR_CORRECT_H
@@ -84,6 +84,11 @@ LARGE_FINDER_ROUNDING = 0.4
 # Exponent of the radial falloff in spot diameter; above 1 keeps the
 # central spots large for longer before they shrink towards the corners.
 FALLOFF_EXPONENT = 1.5
+
+# Overall B factor of the Wilson falloff, in Å², typical of a well-ordered
+# cryo-cooled protein crystal. A larger B shrinks the mid-radius spots:
+# at 30 Å² a version 12 code fell below the margin floor, at 20 Å² it held.
+WILSON_B = 20.0
 
 # Maximum offset, in modules, of a background speckle from its module
 # centre.
@@ -140,6 +145,8 @@ class DiffractionStyle:
     speckle_colour: str = "#b7b7b7"
     speckle_diameter: float = 0.10
     speckle_probability: float = 0.35
+    falloff: Literal["wilson", "radial"] = "wilson"
+    wilson_b: float = WILSON_B
     ice_rings: bool = True
     ice_ring_colour: str = "#e8ebf1"
     ice_ring_width: float = 0.8
@@ -412,6 +419,36 @@ def _ice_boost(r: float, ring_radii: list[float], half_width: float) -> float:
     )
 
 
+def wilson_intensity(d: float, b_factor: float) -> float:
+    """Return the Wilson falloff exp(-B/(4d²)) at resolution ``d`` in Å, for
+    an overall B factor in Å²; 1 at d = ∞.
+
+    Wilson, A. J. C. (1942), Nature 150, 152, doi:10.1038/150152a0; the
+    exponent is -2B(sin θ/λ)² with sin θ/λ = 1/(2d).
+    """
+    return math.exp(-b_factor / (4.0 * d * d))
+
+
+def _falloff_diameter(r: float, style: DiffractionStyle) -> float:
+    """Return the unjittered spot diameter at normalised radius ``r``.
+
+    The radial falloff interpolates on r^FALLOFF_EXPONENT. The Wilson
+    falloff interpolates on intensity, rescaled so the centre takes
+    spot_diameter_centre and the corner module (r = 1) spot_diameter_edge
+    whatever the B factor; B shapes the curve but never moves its ends.
+    """
+    centre, edge = style.spot_diameter_centre, style.spot_diameter_edge
+    if style.falloff == "radial":
+        return centre + (edge - centre) * r**FALLOFF_EXPONENT
+
+    # With no decay to rescale over, every spot keeps the centre size.
+    corner = wilson_intensity(resolution(1.0, style), style.wilson_b)
+    if corner >= 1.0:
+        return centre
+    intensity = wilson_intensity(resolution(r, style), style.wilson_b)
+    return edge + (centre - edge) * (intensity - corner) / (1.0 - corner)
+
+
 def _spot_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]:
     """Draw a spot in every dark data module and speckle in some light ones.
 
@@ -432,11 +469,7 @@ def _spot_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]
             # edge, jittered, and never below the safe sampling diameter.
             if grid.modules[y][x]:
                 r = grid.radius(x, y)
-                d = (
-                    style.spot_diameter_centre
-                    + (style.spot_diameter_edge - style.spot_diameter_centre)
-                    * r**FALLOFF_EXPONENT
-                )
+                d = _falloff_diameter(r, style)
                 d *= 1.0 + rng.uniform(-style.spot_jitter, style.spot_jitter)
                 d = max(d, SAFE_SPOT_DIAMETER)
 
