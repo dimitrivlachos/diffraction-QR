@@ -10,7 +10,14 @@ A decoder locates the three finder patterns by scanning rows, columns and
 diagonals for a dark:light:dark:light:dark run ratio of 1:1:3:1:1, with
 each run allowed about ±50%. Concentric circles preserve that ratio along
 any line through their centre, so ring finders are found as readily as
-square ones. Once located, the decoder fits a perspective transform to
+square ones. Finding them is not the whole job, though: ZXing also
+refines module size and geometry from the finders' square outlines, and
+from version 7 onwards, where the code carries version information, a
+circular finder makes that refinement fail outright. Codes up to version
+6 therefore keep circular finders and larger ones get rounded squares,
+rounded only as far as a margin sweep showed ZXing still tolerates.
+
+Once located, the decoder fits a perspective transform to
 the finder centres and any alignment patterns, then samples the centre
 of each module. A dark module therefore only has to be dark at its
 centre: a round spot of diameter at least ~0.55 of the module pitch is
@@ -20,8 +27,9 @@ sampling error from small spots or print blur.
 
 The faint speckle drawn in light modules must stay well clear of the
 decoder's binarisation threshold, so it is kept both tiny and pale. No
-decode check is performed here; a styled code should be verified with a
-real scanner before it is printed.
+decode check is performed here; ``margin.py`` measures how much blur a
+render survives, and a styled code should still be verified with a real
+scanner before it is printed.
 """
 
 from __future__ import annotations
@@ -47,6 +55,17 @@ SAFE_SPOT_DIAMETER = 0.55
 # Half-widths, in modules, of the 7x7 finder and 5x5 alignment patterns.
 FINDER_HALF_WIDTH = 3
 ALIGNMENT_HALF_WIDTH = 2
+
+# Largest QR version drawn with circular finders. From version 7 the
+# code carries version information and ZXing 2.3 failed to decode
+# circular finders at every version swept (7 to 22).
+ROUND_FINDER_MAX_VERSION = 6
+
+# Corner radius of the larger codes' finders, as a fraction of each
+# square's half-width: 0 is a square, 1 a circle. Under ZXing 2.3, 0.55
+# collapsed the blur margin at versions 13 and 22, while 0.4 kept
+# σ >= 0.375 module pitches from version 7 to 22.
+LARGE_FINDER_ROUNDING = 0.4
 
 # Exponent of the radial falloff in spot diameter; above 1 keeps the
 # central spots large for longer before they shrink towards the corners.
@@ -122,6 +141,30 @@ def _covered_modules(
     }
 
 
+def _finder_svg(cx: float, cy: float, colour: str, version: int) -> list[str]:
+    """Return the SVG elements of one finder centred on (``cx``, ``cy``).
+
+    A unit-width stroke on the half-width-3 outline spans the dark ring
+    2.5-3.5, leaving light 1.5-2.5 around a dark core of half-width 1.5.
+    """
+    if version <= ROUND_FINDER_MAX_VERSION:
+        return [
+            f'<circle cx="{cx}" cy="{cy}" r="3" fill="none" '
+            f'stroke="{colour}" stroke-width="1"/>',
+            f'<circle cx="{cx}" cy="{cy}" r="1.5" fill="{colour}"/>',
+        ]
+
+    # Rounded squares; the stroke's corner radius is set on its centre
+    # line, so the core's radius scales with its own half-width.
+    return [
+        f'<rect x="{cx - 3}" y="{cy - 3}" width="6" height="6" '
+        f'rx="{3 * LARGE_FINDER_ROUNDING:g}" fill="none" '
+        f'stroke="{colour}" stroke-width="1"/>',
+        f'<rect x="{cx - 1.5}" y="{cy - 1.5}" width="3" height="3" '
+        f'rx="{1.5 * LARGE_FINDER_ROUNDING:g}" fill="{colour}"/>',
+    ]
+
+
 def build(url: str, seed: int = 0, style: DiffractionStyle | None = None) -> StyledQr:
     """Encode ``url`` at error correction level H and render it as an SVG.
 
@@ -192,15 +235,9 @@ def build(url: str, seed: int = 0, style: DiffractionStyle | None = None) -> Sty
                     f'fill="{style.speckle_colour}"/>'
                 )
 
-    # Finders: a unit-width stroke at r = 3 spans the dark ring 2.5-3.5,
-    # leaving light 1.5-2.5 around a dark disc of r = 1.5.
+    # Finders: circles for small codes, rounded squares for large ones.
     for fx, fy in finders:
-        cx, cy = fx + 0.5, fy + 0.5
-        out.append(
-            f'<circle cx="{cx}" cy="{cy}" r="3" fill="none" '
-            f'stroke="{style.spot_colour}" stroke-width="1"/>'
-        )
-        out.append(f'<circle cx="{cx}" cy="{cy}" r="1.5" fill="{style.spot_colour}"/>')
+        out.extend(_finder_svg(fx + 0.5, fy + 0.5, style.spot_colour, qr.version))
 
     # Alignment patterns: dark ring 1.5-2.5, light 0.5-1.5, dark dot r = 0.5.
     for ax, ay in alignments:
