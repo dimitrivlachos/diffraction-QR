@@ -78,6 +78,10 @@ SPECKLE_SCATTER = 0.2
 # URL encoded when none is given on the command line.
 DEFAULT_URL = "https://dials.github.io"
 
+# Smallest printed module, in mm, that a phone camera reads reliably at
+# arm's length; below it the URL is too long for the space it is given.
+MIN_PRINT_MODULE_MM = 0.4
+
 
 @dataclass(frozen=True)
 class DiffractionStyle:
@@ -99,11 +103,16 @@ class DiffractionStyle:
 
 
 class StyledQr(NamedTuple):
-    """An SVG document with the QR version and side length it encodes."""
+    """An SVG document with the QR version and dimensions it encodes.
+
+    ``size`` is the symbol's side in modules; ``width`` adds the quiet
+    zone on both sides and is the SVG viewBox side.
+    """
 
     svg: str
     size: int
     version: int
+    width: int
 
 
 def _pattern_centres(
@@ -165,12 +174,18 @@ def _finder_svg(cx: float, cy: float, colour: str, version: int) -> list[str]:
     ]
 
 
-def build(url: str, seed: int = 0, style: DiffractionStyle | None = None) -> StyledQr:
+def build(
+    url: str,
+    seed: int = 0,
+    style: DiffractionStyle | None = None,
+    size_mm: float | None = None,
+) -> StyledQr:
     """Encode ``url`` at error correction level H and render it as an SVG.
 
-    The SVG viewBox is in module units and is sized at one millimetre per
-    module. ``seed`` fixes the spot jitter and speckle so a given URL and
-    seed always render identically.
+    The SVG viewBox is in module units. ``size_mm`` sets the printed side
+    of the whole SVG, quiet zone included; without it the SVG is sized
+    at one millimetre per module. ``seed`` fixes the spot jitter and
+    speckle so a given URL and seed always render identically.
     """
     style = style or DiffractionStyle()
     rng = random.Random(seed)
@@ -191,9 +206,10 @@ def build(url: str, seed: int = 0, style: DiffractionStyle | None = None) -> Sty
     )
 
     width = size + 2 * style.quiet_zone
+    side = f"{size_mm:g}mm" if size_mm is not None else f"{width}mm"
     out = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {width}" '
-        f'width="{width}mm" height="{width}mm">',
+        f'width="{side}" height="{side}">',
         f'<rect width="{width}" height="{width}" fill="#fff"/>',
         f'<g transform="translate({style.quiet_zone},{style.quiet_zone})">',
     ]
@@ -249,7 +265,7 @@ def build(url: str, seed: int = 0, style: DiffractionStyle | None = None) -> Sty
         out.append(f'<circle cx="{cx}" cy="{cy}" r="0.5" fill="{style.spot_colour}"/>')
 
     out.append("</g></svg>")
-    return StyledQr(svg="\n".join(out), size=size, version=qr.version)
+    return StyledQr(svg="\n".join(out), size=size, version=qr.version, width=width)
 
 
 def main(argv: list[str] | None = None) -> None:
@@ -261,10 +277,21 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument(
         "-o", "--output", type=Path, default=Path("diffqr.svg"), help="SVG to write"
     )
+    parser.add_argument(
+        "--size-mm",
+        type=float,
+        help="printed side of the SVG in mm, quiet zone included",
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="measure the blur margin of the result (needs the decode harness)",
+    )
     args = parser.parse_args(argv)
 
     logging.basicConfig(level=logging.INFO, format="%(message)s")
-    styled = build(args.url, seed=args.seed)
+    styled = build(args.url, seed=args.seed, size_mm=args.size_mm)
+    args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(styled.svg)
     logger.info(
         "Wrote %s: version %d, %dx%d modules",
@@ -273,6 +300,35 @@ def main(argv: list[str] | None = None) -> None:
         styled.size,
         styled.size,
     )
+
+    # A physical size fixes the printed module, which is what a camera
+    # has to resolve.
+    if args.size_mm is not None:
+        module_mm = args.size_mm / styled.width
+        logger.info("Module size %.2f mm", module_mm)
+        if module_mm < MIN_PRINT_MODULE_MM:
+            logger.warning(
+                "Module size %.2f mm is below the %.2f mm print minimum; "
+                "shorten the URL or raise --size-mm to at least %.1f",
+                module_mm,
+                MIN_PRINT_MODULE_MM,
+                MIN_PRINT_MODULE_MM * styled.width,
+            )
+
+    # The decode harness pulls in cairosvg, scipy and zxing-cpp, so it is
+    # imported only when asked for.
+    if args.check:
+        from margin import MARGIN_FLOOR, blur_margin
+
+        sigma = blur_margin(styled.svg, args.url)
+        logger.info("Blur margin σ = %.3f module pitches", sigma)
+        if sigma < MARGIN_FLOOR:
+            logger.warning(
+                "Blur margin σ = %.3f is below the %.3f floor; the code may not "
+                "scan from a real camera, so shorten the URL or reduce styling",
+                sigma,
+                MARGIN_FLOOR,
+            )
 
 
 if __name__ == "__main__":
