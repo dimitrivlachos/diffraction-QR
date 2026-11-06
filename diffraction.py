@@ -38,6 +38,7 @@ import argparse
 import logging
 import math
 import random
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import NamedTuple
@@ -174,61 +175,84 @@ def _finder_svg(cx: float, cy: float, colour: str, version: int) -> list[str]:
     ]
 
 
-def build(
-    url: str,
-    seed: int = 0,
-    style: DiffractionStyle | None = None,
-    size_mm: float | None = None,
-) -> StyledQr:
-    """Encode ``url`` at error correction level H and render it as an SVG.
+def _alignment_svg(cx: float, cy: float, colour: str) -> list[str]:
+    """Return the SVG elements of one alignment pattern centred on (cx, cy).
 
-    The SVG viewBox is in module units. ``size_mm`` sets the printed side
-    of the whole SVG, quiet zone included; without it the SVG is sized
-    at one millimetre per module. ``seed`` fixes the spot jitter and
-    speckle so a given URL and seed always render identically.
+    Dark ring 1.5-2.5, light 0.5-1.5, dark dot of radius 0.5.
     """
-    style = style or DiffractionStyle()
-    rng = random.Random(seed)
+    return [
+        f'<circle cx="{cx}" cy="{cy}" r="2" fill="none" '
+        f'stroke="{colour}" stroke-width="1"/>',
+        f'<circle cx="{cx}" cy="{cy}" r="0.5" fill="{colour}"/>',
+    ]
 
-    # Encode at the smallest version that fits, with no built-in border;
-    # the quiet zone is added by the SVG transform instead.
+
+@dataclass(frozen=True)
+class CodeGrid:
+    """The encoded symbol and the geometry every layer draws against.
+
+    Coordinates are in modules with the origin at the symbol's top-left
+    corner; the quiet zone lies outside. ``reserved`` holds the modules
+    the pattern layer draws as rings, which the spot layer leaves alone.
+    """
+
+    modules: list[list[bool]]
+    size: int
+    version: int
+    finders: list[tuple[int, int]]
+    alignments: list[tuple[int, int]]
+    reserved: frozenset[tuple[int, int]]
+
+    @property
+    def centre(self) -> float:
+        """Module index of the symbol centre, which plays the beam centre."""
+        return (self.size - 1) / 2.0
+
+    def radius(self, x: float, y: float) -> float:
+        """Return the distance of module (x, y) from the centre, normalised
+        so the corner modules sit at 1."""
+        corner_distance = math.hypot(self.centre, self.centre)
+        return math.hypot(x - self.centre, y - self.centre) / corner_distance
+
+
+def _encode(url: str) -> CodeGrid:
+    """Encode ``url`` at level H, smallest version, with no built-in border."""
     qr = qrcode.QRCode(error_correction=ERROR_CORRECT_H, border=0)
     qr.add_data(url)
     qr.make(fit=True)
-    modules = qr.modules
-    size = len(modules)
-
-    # Finder and alignment modules are drawn as rings afterwards, so the
-    # per-module pass skips them.
+    size = len(qr.modules)
     finders, alignments = _pattern_centres(size, qr.version)
-    rings = _covered_modules(finders, FINDER_HALF_WIDTH) | _covered_modules(
+    reserved = _covered_modules(finders, FINDER_HALF_WIDTH) | _covered_modules(
         alignments, ALIGNMENT_HALF_WIDTH
     )
+    return CodeGrid(
+        modules=qr.modules,
+        size=size,
+        version=qr.version,
+        finders=finders,
+        alignments=alignments,
+        reserved=frozenset(reserved),
+    )
 
-    width = size + 2 * style.quiet_zone
-    side = f"{size_mm:g}mm" if size_mm is not None else f"{width}mm"
-    out = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {width}" '
-        f'width="{side}" height="{side}">',
-        f'<rect width="{width}" height="{width}" fill="#fff"/>',
-        f'<g transform="translate({style.quiet_zone},{style.quiet_zone})">',
-    ]
 
-    # The code centre plays the beam centre; radii are normalised so the
-    # corner modules sit at 1.
-    centre = (size - 1) / 2.0
-    corner_distance = math.hypot(centre, centre)
+def _spot_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]:
+    """Draw a spot in every dark data module and speckle in some light ones.
 
-    for y in range(size):
-        for x in range(size):
-            if (x, y) in rings:
+    Uses ``random.Random(seed)`` directly rather than a per-layer stream
+    so renders recorded before the layers were split stay reproducible.
+    """
+    rng = random.Random(seed)
+    out = []
+    for y in range(grid.size):
+        for x in range(grid.size):
+            if (x, y) in grid.reserved:
                 continue
             cx, cy = x + 0.5, y + 0.5
 
             # Dark modules: large spots at the centre shrinking towards the
             # edge, jittered, and never below the safe sampling diameter.
-            if modules[y][x]:
-                r = math.hypot(x - centre, y - centre) / corner_distance
+            if grid.modules[y][x]:
+                r = grid.radius(x, y)
                 d = (
                     style.spot_diameter_centre
                     + (style.spot_diameter_edge - style.spot_diameter_centre)
@@ -250,22 +274,62 @@ def build(
                     f'r="{style.speckle_diameter / 2:.3f}" '
                     f'fill="{style.speckle_colour}"/>'
                 )
+    return out
 
-    # Finders: circles for small codes, rounded squares for large ones.
-    for fx, fy in finders:
-        out.extend(_finder_svg(fx + 0.5, fy + 0.5, style.spot_colour, qr.version))
 
-    # Alignment patterns: dark ring 1.5-2.5, light 0.5-1.5, dark dot r = 0.5.
-    for ax, ay in alignments:
-        cx, cy = ax + 0.5, ay + 0.5
-        out.append(
-            f'<circle cx="{cx}" cy="{cy}" r="2" fill="none" '
-            f'stroke="{style.spot_colour}" stroke-width="1"/>'
-        )
-        out.append(f'<circle cx="{cx}" cy="{cy}" r="0.5" fill="{style.spot_colour}"/>')
+def _pattern_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]:
+    """Draw the finders, then the alignment patterns, as rings."""
+    out = []
+    for fx, fy in grid.finders:
+        out.extend(_finder_svg(fx + 0.5, fy + 0.5, style.spot_colour, grid.version))
+    for ax, ay in grid.alignments:
+        out.extend(_alignment_svg(ax + 0.5, ay + 0.5, style.spot_colour))
+    return out
 
+
+# A layer draws one kind of element over the whole grid and returns SVG
+# elements in symbol coordinates. A layer that needs randomness seeds its
+# own generator from the build seed and its name, so adding a layer
+# never reshuffles another.
+Layer = Callable[[CodeGrid, DiffractionStyle, int], list[str]]
+
+# Layers in drawing order, bottom first.
+LAYERS: tuple[Layer, ...] = (_spot_layer, _pattern_layer)
+
+
+def build(
+    url: str,
+    seed: int = 0,
+    style: DiffractionStyle | None = None,
+    size_mm: float | None = None,
+) -> StyledQr:
+    """Encode ``url`` at error correction level H and render it as an SVG.
+
+    The SVG viewBox is in module units. ``size_mm`` sets the printed side
+    of the whole SVG, quiet zone included; without it the SVG is sized
+    at one millimetre per module. ``seed`` fixes every random choice so a
+    given URL and seed always render identically.
+    """
+    style = style or DiffractionStyle()
+    grid = _encode(url)
+
+    # A white page the size of the symbol plus its quiet zone, with the
+    # layers drawn inside a group shifted by the quiet zone.
+    width = grid.size + 2 * style.quiet_zone
+    side = f"{size_mm:g}mm" if size_mm is not None else f"{width}mm"
+    out = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {width}" '
+        f'width="{side}" height="{side}">',
+        f'<rect width="{width}" height="{width}" fill="#fff"/>',
+        f'<g transform="translate({style.quiet_zone},{style.quiet_zone})">',
+    ]
+    for layer in LAYERS:
+        out.extend(layer(grid, style, seed))
     out.append("</g></svg>")
-    return StyledQr(svg="\n".join(out), size=size, version=qr.version, width=width)
+
+    return StyledQr(
+        svg="\n".join(out), size=grid.size, version=grid.version, width=width
+    )
 
 
 def main(argv: list[str] | None = None) -> None:
