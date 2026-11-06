@@ -85,6 +85,11 @@ LARGE_FINDER_ROUNDING = 0.4
 # central spots large for longer before they shrink towards the corners.
 FALLOFF_EXPONENT = 1.5
 
+# Longest a streaked spot may grow, in module pitches. A half-length
+# under one module never reaches a neighbouring module's sampling point,
+# so a streak cannot darken a light module where the decoder looks.
+STREAK_CAP = 1.0
+
 # Overall B factor of the Wilson falloff, in Å², typical of a well-ordered
 # cryo-cooled protein crystal. A larger B shrinks the mid-radius spots:
 # at 30 Å² a version 12 code fell below the margin floor, at 20 Å² it held.
@@ -147,6 +152,7 @@ class DiffractionStyle:
     speckle_probability: float = 0.35
     falloff: Literal["wilson", "radial"] = "wilson"
     wilson_b: float = WILSON_B
+    streak: float = 0.4
     ice_rings: bool = True
     ice_ring_colour: str = "#e8ebf1"
     ice_ring_width: float = 0.8
@@ -449,6 +455,23 @@ def _falloff_diameter(r: float, style: DiffractionStyle) -> float:
     return edge + (centre - edge) * (intensity - corner) / (1.0 - corner)
 
 
+def _spot_svg(
+    cx: float, cy: float, width: float, length: float, angle: float, colour: str
+) -> str:
+    """Return one spot centred on (cx, cy): ``width`` across its long axis
+    and ``length`` along it, which points ``angle`` degrees clockwise from
+    +x. Unstreaked spots stay circles, so their markup is unchanged."""
+    if length <= width:
+        return (
+            f'<circle cx="{cx:.2f}" cy="{cy:.2f}" r="{width / 2:.3f}" fill="{colour}"/>'
+        )
+    return (
+        f'<ellipse cx="{cx:.2f}" cy="{cy:.2f}" rx="{length / 2:.3f}" '
+        f'ry="{width / 2:.3f}" transform="rotate({angle:.1f} {cx:.2f} {cy:.2f})" '
+        f'fill="{colour}"/>'
+    )
+
+
 def _spot_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]:
     """Draw a spot in every dark data module and speckle in some light ones.
 
@@ -478,9 +501,13 @@ def _spot_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]
                 boost = _ice_boost(r, ring_radii, ring_half_width)
                 if boost > 0.0:
                     d = min(d * (1.0 + boost), max(d, ICE_SPOT_CAP))
+
+                # Streak across the radius: the radial axis keeps d, the
+                # tangential axis lengthens with radius up to the cap.
+                length = min(d * (1.0 + style.streak * r), max(d, STREAK_CAP))
+                angle = math.degrees(math.atan2(y - grid.centre, x - grid.centre))
                 out.append(
-                    f'<circle cx="{cx:.2f}" cy="{cy:.2f}" r="{d / 2:.3f}" '
-                    f'fill="{style.spot_colour}"/>'
+                    _spot_svg(cx, cy, d, length, angle + 90.0, style.spot_colour)
                 )
 
             # Light modules: occasional faint speckle, scattered off centre.

@@ -14,98 +14,98 @@
 <circle cx="16.5" cy="16.5" r="22.047"/>
 <circle cx="16.5" cy="16.5" r="22.768"/>
 </g>
-<circle cx="8.50" cy="0.50" r="0.412" fill="#202945"/>
-<circle cx="9.50" cy="0.50" r="0.326" fill="#202945"/>
+<ellipse cx="8.50" cy="0.50" rx="0.500" ry="0.412" transform="rotate(-26.6 8.50 0.50)" fill="#202945"/>
+<ellipse cx="9.50" cy="0.50" rx="0.427" ry="0.326" transform="rotate(-23.6 9.50 0.50)" fill="#202945"/>
 <circle cx="10.50" cy="0.46" r="0.050" fill="#b7b7b7"/>
-<circle cx="11.50" cy="0.50" r="0.353" fill="#202945"/>
+<ellipse cx="11.50" cy="0.50" rx="0.457" ry="0.353" transform="rotate(-17.4 11.50 0.50)" fill="#202945"/>
 <circle cx="12.49" cy="0.53" r="0.050" fill="#b7b7b7"/>
-<circle cx="13.50" cy="0.50" r="0.367" fill="#202945"/>
-<circle cx="14.50" cy="0.50" r="0.336" fill="#202945"/>
-<circle cx="15.50" cy="0.50" r="0.319" fill="#202945"/>
-<circle cx="17.50" cy="0.50" r="0.346" fill="#202945"/>
+<ellipse cx="13.50" cy="0.50" rx="0.473" ry="0.367" transform="rotate(-10.6 13.50 0.50)" fill="#202945"/>
+<ellipse cx="14.50" cy="0.50" rx="0.432" ry="0.336" transform="rotate(-7.1 14.50 0.50)" fill="#202945"/>
+<ellipse cx="15.50" cy="0.50" rx="0.409" ry="0.319" transform="rotate(-3.6 15.50 0.50)" fill="#202945"/>
+<ellipse cx="17.50" cy="0.50" rx="0.444" ry="0.346" transform="rotate(3.6 17.50 0.50)" fill="#202945"/>
 <circle cx="18.66" cy="0.69" r="0.050" fill="#b7b7b7"/>
-<circle cx="19.50" cy="0.50" r="0.359" fill="#202945"/>
-<circle cx="20.50" cy="0.50" r="0.364" fill="#202945"/>
-<circle cx="21.50" cy="0.50" r="0.315" fill="#202945"/>
-<circle cx="22.50" cy="0.50" r="0.345" fill="#202945"/>
-<circle cx="24.50" cy="0.50" r="0.405" fill="#202945"/>
+<ellipse cx="19.50" cy="0.50" rx="0.462" ry="0.359" transform="rotate(10.6 19.50 0.50)" fill="#202945"/>
+<ellipse cx="20.50" cy="0.50" rx="0.471" ry="0.364" transform="rotate(14.0 20.50 0.50)" fill="#202945"/>
+<ellipse cx="21.50" cy="0.50" rx="0.408" ry="0.315" transform="rotate(17.4 21.50 0.50)" fill="#202945"/>
+<ellipse cx="22.50" cy="0.50" rx="0.450" ry="0.345" transform="rotate(20.6 22.50 0.50)" fill="#202945"/>
+<ellipse cx="24.50" cy="0.50" rx="0.500" ry="0.405" transform="rotate(26.6 24.50 0.50)" fill="#202945"/>
 <circle cx="7.47" cy="1.54" r="0.050" fill="#b7b7b7"/>
-<circle cx="12.50" cy="1.50" r="0.321" fill="#202945"/>
-<circle cx="14.50" cy="1.50" r="0.349" fill="#202945"/>
-<circle cx="15.50" cy="1.50" r="0.312" fill="#202945"/>
-<circle cx="16.50" cy="1.50" r="0.380" fill="#202945"/>
-<circle cx="17.50" cy="1.50" r="0.345" fill="#202945"/>
+<ellipse cx="12.50" cy="1.50" rx="0.409" ry="0.321" transform="rotate(-14.9 12.50 1.50)" fill="#202945"/>
+<ellipse cx="14.50" cy="1.50" rx="0.442" ry="0.349" transform="rotate(-7.6 14.50 1.50)" fill="#202945"/>
+<ellipse cx="15.50" cy="1.50" rx="0.395" ry="0.312" transform="rotate(-3.8 15.50 1.50)" fill="#202945"/>
+<ellipse cx="16.50" cy="1.50" rx="0.481" ry="0.380" transform="rotate(0.0 16.50 1.50)" fill="#202945"/>
+<ellipse cx="17.50" cy="1.50" rx="0.437" ry="0.345" transform="rotate(3.8 17.50 1.50)" fill="#202945"/>
 <circle cx="20.50" cy="1.65" r="0.050" fill="#b7b7b7"/>
 <circle cx="21.43" cy="1.65" r="0.050" fill="#b7b7b7"/>
 <circle cx="22.53" cy="1.40" r="0.050" fill="#b7b7b7"/>
-<circle cx="24.50" cy="1.50" r="0.352" fill="#202945"/>
+<ellipse cx="24.50" cy="1.50" rx="0.458" ry="0.352" transform="rotate(28.1 24.50 1.50)" fill="#202945"/>
 <circle cx="7.43" cy="2.50" r="0.050" fill="#b7b7b7"/>
-<circle cx="8.50" cy="2.50" r="0.370" fill="#202945"/>
-<circle cx="9.50" cy="2.50" r="0.308" fill="#202945"/>
-<circle cx="10.50" cy="2.50" r="0.348" fill="#202945"/>
-<circle cx="12.50" cy="2.50" r="0.418" fill="#202945"/>
-<circle cx="14.50" cy="2.50" r="0.357" fill="#202945"/>
-<circle cx="15.50" cy="2.50" r="0.394" fill="#202945"/>
-<circle cx="16.50" cy="2.50" r="0.364" fill="#202945"/>
-<circle cx="17.50" cy="2.50" r="0.362" fill="#202945"/>
-<circle cx="18.50" cy="2.50" r="0.349" fill="#202945"/>
-<circle cx="21.50" cy="2.50" r="0.399" fill="#202945"/>
-<circle cx="22.50" cy="2.50" r="0.326" fill="#202945"/>
-<circle cx="23.50" cy="2.50" r="0.314" fill="#202945"/>
-<circle cx="24.50" cy="2.50" r="0.310" fill="#202945"/>
+<ellipse cx="8.50" cy="2.50" rx="0.476" ry="0.370" transform="rotate(-29.7 8.50 2.50)" fill="#202945"/>
+<ellipse cx="9.50" cy="2.50" rx="0.393" ry="0.308" transform="rotate(-26.6 9.50 2.50)" fill="#202945"/>
+<ellipse cx="10.50" cy="2.50" rx="0.441" ry="0.348" transform="rotate(-23.2 10.50 2.50)" fill="#202945"/>
+<ellipse cx="12.50" cy="2.50" rx="0.500" ry="0.418" transform="rotate(-15.9 12.50 2.50)" fill="#202945"/>
+<ellipse cx="14.50" cy="2.50" rx="0.447" ry="0.357" transform="rotate(-8.1 14.50 2.50)" fill="#202945"/>
+<ellipse cx="15.50" cy="2.50" rx="0.492" ry="0.394" transform="rotate(-4.1 15.50 2.50)" fill="#202945"/>
+<ellipse cx="16.50" cy="2.50" rx="0.454" ry="0.364" transform="rotate(0.0 16.50 2.50)" fill="#202945"/>
+<ellipse cx="17.50" cy="2.50" rx="0.452" ry="0.362" transform="rotate(4.1 17.50 2.50)" fill="#202945"/>
+<ellipse cx="18.50" cy="2.50" rx="0.436" ry="0.349" transform="rotate(8.1 18.50 2.50)" fill="#202945"/>
+<ellipse cx="21.50" cy="2.50" rx="0.500" ry="0.399" transform="rotate(19.7 21.50 2.50)" fill="#202945"/>
+<ellipse cx="22.50" cy="2.50" rx="0.414" ry="0.326" transform="rotate(23.2 22.50 2.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="2.50" rx="0.401" ry="0.314" transform="rotate(26.6 23.50 2.50)" fill="#202945"/>
+<ellipse cx="24.50" cy="2.50" rx="0.399" ry="0.310" transform="rotate(29.7 24.50 2.50)" fill="#202945"/>
 <circle cx="9.60" cy="3.65" r="0.050" fill="#b7b7b7"/>
-<circle cx="12.50" cy="3.50" r="0.393" fill="#202945"/>
-<circle cx="16.50" cy="3.50" r="0.383" fill="#202945"/>
+<ellipse cx="12.50" cy="3.50" rx="0.488" ry="0.393" transform="rotate(-17.1 12.50 3.50)" fill="#202945"/>
+<ellipse cx="16.50" cy="3.50" rx="0.471" ry="0.383" transform="rotate(0.0 16.50 3.50)" fill="#202945"/>
 <circle cx="17.62" cy="3.64" r="0.050" fill="#b7b7b7"/>
-<circle cx="19.50" cy="3.50" r="0.369" fill="#202945"/>
-<circle cx="20.50" cy="3.50" r="0.398" fill="#202945"/>
-<circle cx="21.50" cy="3.50" r="0.363" fill="#202945"/>
-<circle cx="23.50" cy="3.50" r="0.431" fill="#202945"/>
-<circle cx="24.50" cy="3.50" r="0.384" fill="#202945"/>
-<circle cx="8.50" cy="4.50" r="0.346" fill="#202945"/>
-<circle cx="10.50" cy="4.50" r="0.360" fill="#202945"/>
+<ellipse cx="19.50" cy="3.50" rx="0.457" ry="0.369" transform="rotate(13.0 19.50 3.50)" fill="#202945"/>
+<ellipse cx="20.50" cy="3.50" rx="0.494" ry="0.398" transform="rotate(17.1 20.50 3.50)" fill="#202945"/>
+<ellipse cx="21.50" cy="3.50" rx="0.452" ry="0.363" transform="rotate(21.0 21.50 3.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="3.50" rx="0.500" ry="0.431" transform="rotate(28.3 23.50 3.50)" fill="#202945"/>
+<ellipse cx="24.50" cy="3.50" rx="0.488" ry="0.384" transform="rotate(31.6 24.50 3.50)" fill="#202945"/>
+<ellipse cx="8.50" cy="4.50" rx="0.434" ry="0.346" transform="rotate(-33.7 8.50 4.50)" fill="#202945"/>
+<ellipse cx="10.50" cy="4.50" rx="0.445" ry="0.360" transform="rotate(-26.6 10.50 4.50)" fill="#202945"/>
 <circle cx="13.59" cy="4.35" r="0.050" fill="#b7b7b7"/>
-<circle cx="14.50" cy="4.50" r="0.348" fill="#202945"/>
-<circle cx="16.50" cy="4.50" r="0.360" fill="#202945"/>
+<ellipse cx="14.50" cy="4.50" rx="0.423" ry="0.348" transform="rotate(-9.5 14.50 4.50)" fill="#202945"/>
+<ellipse cx="16.50" cy="4.50" rx="0.437" ry="0.360" transform="rotate(0.0 16.50 4.50)" fill="#202945"/>
 <circle cx="18.36" cy="4.58" r="0.050" fill="#b7b7b7"/>
 <circle cx="19.53" cy="4.66" r="0.050" fill="#b7b7b7"/>
-<circle cx="21.50" cy="4.50" r="0.381" fill="#202945"/>
+<ellipse cx="21.50" cy="4.50" rx="0.468" ry="0.381" transform="rotate(22.6 21.50 4.50)" fill="#202945"/>
 <circle cx="22.55" cy="4.54" r="0.050" fill="#b7b7b7"/>
 <circle cx="8.31" cy="5.68" r="0.050" fill="#b7b7b7"/>
 <circle cx="9.35" cy="5.38" r="0.050" fill="#b7b7b7"/>
-<circle cx="10.50" cy="5.50" r="0.397" fill="#202945"/>
-<circle cx="11.50" cy="5.50" r="0.414" fill="#202945"/>
+<ellipse cx="10.50" cy="5.50" rx="0.484" ry="0.397" transform="rotate(-28.6 10.50 5.50)" fill="#202945"/>
+<ellipse cx="11.50" cy="5.50" rx="0.500" ry="0.414" transform="rotate(-24.4 11.50 5.50)" fill="#202945"/>
 <circle cx="12.47" cy="5.34" r="0.050" fill="#b7b7b7"/>
-<circle cx="13.50" cy="5.50" r="0.393" fill="#202945"/>
-<circle cx="14.50" cy="5.50" r="0.441" fill="#202945"/>
+<ellipse cx="13.50" cy="5.50" rx="0.472" ry="0.393" transform="rotate(-15.3 13.50 5.50)" fill="#202945"/>
+<ellipse cx="14.50" cy="5.50" rx="0.500" ry="0.441" transform="rotate(-10.3 14.50 5.50)" fill="#202945"/>
 <circle cx="17.50" cy="5.32" r="0.050" fill="#b7b7b7"/>
 <circle cx="18.70" cy="5.38" r="0.050" fill="#b7b7b7"/>
-<circle cx="22.50" cy="5.50" r="0.407" fill="#202945"/>
-<circle cx="23.50" cy="5.50" r="0.336" fill="#202945"/>
-<circle cx="24.50" cy="5.50" r="0.374" fill="#202945"/>
+<ellipse cx="22.50" cy="5.50" rx="0.497" ry="0.407" transform="rotate(28.6 22.50 5.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="5.50" rx="0.413" ry="0.336" transform="rotate(32.5 23.50 5.50)" fill="#202945"/>
+<ellipse cx="24.50" cy="5.50" rx="0.464" ry="0.374" transform="rotate(36.0 24.50 5.50)" fill="#202945"/>
 <circle cx="7.57" cy="6.64" r="0.050" fill="#b7b7b7"/>
-<circle cx="8.50" cy="6.50" r="0.353" fill="#202945"/>
+<ellipse cx="8.50" cy="6.50" rx="0.433" ry="0.353" transform="rotate(-38.7 8.50 6.50)" fill="#202945"/>
 <circle cx="9.54" cy="6.48" r="0.050" fill="#b7b7b7"/>
-<circle cx="10.50" cy="6.50" r="0.349" fill="#202945"/>
-<circle cx="12.50" cy="6.50" r="0.390" fill="#202945"/>
-<circle cx="14.50" cy="6.50" r="0.439" fill="#202945"/>
+<ellipse cx="10.50" cy="6.50" rx="0.421" ry="0.349" transform="rotate(-31.0 10.50 6.50)" fill="#202945"/>
+<ellipse cx="12.50" cy="6.50" rx="0.465" ry="0.390" transform="rotate(-21.8 12.50 6.50)" fill="#202945"/>
+<ellipse cx="14.50" cy="6.50" rx="0.500" ry="0.439" transform="rotate(-11.3 14.50 6.50)" fill="#202945"/>
 <circle cx="15.44" cy="6.64" r="0.050" fill="#b7b7b7"/>
-<circle cx="16.50" cy="6.50" r="0.414" fill="#202945"/>
-<circle cx="18.50" cy="6.50" r="0.387" fill="#202945"/>
-<circle cx="20.50" cy="6.50" r="0.383" fill="#202945"/>
+<ellipse cx="16.50" cy="6.50" rx="0.487" ry="0.414" transform="rotate(0.0 16.50 6.50)" fill="#202945"/>
+<ellipse cx="18.50" cy="6.50" rx="0.457" ry="0.387" transform="rotate(11.3 18.50 6.50)" fill="#202945"/>
+<ellipse cx="20.50" cy="6.50" rx="0.456" ry="0.383" transform="rotate(21.8 20.50 6.50)" fill="#202945"/>
 <circle cx="21.41" cy="6.40" r="0.050" fill="#b7b7b7"/>
-<circle cx="22.50" cy="6.50" r="0.420" fill="#202945"/>
-<circle cx="24.50" cy="6.50" r="0.348" fill="#202945"/>
+<ellipse cx="22.50" cy="6.50" rx="0.500" ry="0.420" transform="rotate(31.0 22.50 6.50)" fill="#202945"/>
+<ellipse cx="24.50" cy="6.50" rx="0.427" ry="0.348" transform="rotate(38.7 24.50 6.50)" fill="#202945"/>
 <circle cx="7.38" cy="7.43" r="0.050" fill="#b7b7b7"/>
-<circle cx="8.50" cy="7.50" r="0.351" fill="#202945"/>
-<circle cx="9.50" cy="7.50" r="0.430" fill="#202945"/>
-<circle cx="10.50" cy="7.50" r="0.392" fill="#202945"/>
-<circle cx="13.50" cy="7.50" r="0.419" fill="#202945"/>
+<ellipse cx="8.50" cy="7.50" rx="0.426" ry="0.351" transform="rotate(-41.6 8.50 7.50)" fill="#202945"/>
+<ellipse cx="9.50" cy="7.50" rx="0.500" ry="0.430" transform="rotate(-37.9 9.50 7.50)" fill="#202945"/>
+<ellipse cx="10.50" cy="7.50" rx="0.467" ry="0.392" transform="rotate(-33.7 10.50 7.50)" fill="#202945"/>
+<ellipse cx="13.50" cy="7.50" rx="0.489" ry="0.419" transform="rotate(-18.4 13.50 7.50)" fill="#202945"/>
 <circle cx="18.48" cy="7.40" r="0.050" fill="#b7b7b7"/>
-<circle cx="19.50" cy="7.50" r="0.393" fill="#202945"/>
-<circle cx="20.50" cy="7.50" r="0.483" fill="#202945"/>
-<circle cx="22.50" cy="7.50" r="0.410" fill="#202945"/>
-<circle cx="23.50" cy="7.50" r="0.442" fill="#202945"/>
+<ellipse cx="19.50" cy="7.50" rx="0.458" ry="0.393" transform="rotate(18.4 19.50 7.50)" fill="#202945"/>
+<ellipse cx="20.50" cy="7.50" rx="0.500" ry="0.483" transform="rotate(24.0 20.50 7.50)" fill="#202945"/>
+<ellipse cx="22.50" cy="7.50" rx="0.488" ry="0.410" transform="rotate(33.7 22.50 7.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="7.50" rx="0.500" ry="0.442" transform="rotate(37.9 23.50 7.50)" fill="#202945"/>
 <circle cx="26.49" cy="7.62" r="0.050" fill="#b7b7b7"/>
 <circle cx="29.70" cy="7.55" r="0.050" fill="#b7b7b7"/>
 <circle cx="30.59" cy="7.69" r="0.050" fill="#b7b7b7"/>
@@ -113,525 +113,525 @@
 <circle cx="1.63" cy="8.51" r="0.050" fill="#b7b7b7"/>
 <circle cx="2.35" cy="8.56" r="0.050" fill="#b7b7b7"/>
 <circle cx="4.69" cy="8.34" r="0.050" fill="#b7b7b7"/>
-<circle cx="5.50" cy="8.50" r="0.390" fill="#202945"/>
-<circle cx="6.50" cy="8.50" r="0.358" fill="#202945"/>
+<ellipse cx="5.50" cy="8.50" rx="0.483" ry="0.390" transform="rotate(-54.0 5.50 8.50)" fill="#202945"/>
+<ellipse cx="6.50" cy="8.50" rx="0.439" ry="0.358" transform="rotate(-51.3 6.50 8.50)" fill="#202945"/>
 <circle cx="7.41" cy="8.48" r="0.050" fill="#b7b7b7"/>
-<circle cx="10.50" cy="8.50" r="0.402" fill="#202945"/>
-<circle cx="11.50" cy="8.50" r="0.417" fill="#202945"/>
+<ellipse cx="10.50" cy="8.50" rx="0.473" ry="0.402" transform="rotate(-36.9 10.50 8.50)" fill="#202945"/>
+<ellipse cx="11.50" cy="8.50" rx="0.487" ry="0.417" transform="rotate(-32.0 11.50 8.50)" fill="#202945"/>
 <circle cx="13.65" cy="8.41" r="0.050" fill="#b7b7b7"/>
-<circle cx="14.50" cy="8.50" r="0.366" fill="#202945"/>
+<ellipse cx="14.50" cy="8.50" rx="0.419" ry="0.366" transform="rotate(-14.0 14.50 8.50)" fill="#202945"/>
 <circle cx="15.57" cy="8.52" r="0.050" fill="#b7b7b7"/>
-<circle cx="17.50" cy="8.50" r="0.459" fill="#202945"/>
-<circle cx="18.50" cy="8.50" r="0.454" fill="#202945"/>
+<ellipse cx="17.50" cy="8.50" rx="0.500" ry="0.459" transform="rotate(7.1 17.50 8.50)" fill="#202945"/>
+<ellipse cx="18.50" cy="8.50" rx="0.500" ry="0.454" transform="rotate(14.0 18.50 8.50)" fill="#202945"/>
 <circle cx="19.60" cy="8.58" r="0.050" fill="#b7b7b7"/>
-<circle cx="22.50" cy="8.50" r="0.483" fill="#202945"/>
-<circle cx="23.50" cy="8.50" r="0.449" fill="#202945"/>
-<circle cx="26.50" cy="8.50" r="0.341" fill="#202945"/>
-<circle cx="28.50" cy="8.50" r="0.339" fill="#202945"/>
+<ellipse cx="22.50" cy="8.50" rx="0.500" ry="0.483" transform="rotate(36.9 22.50 8.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="8.50" rx="0.500" ry="0.449" transform="rotate(41.2 23.50 8.50)" fill="#202945"/>
+<ellipse cx="26.50" cy="8.50" rx="0.419" ry="0.341" transform="rotate(51.3 26.50 8.50)" fill="#202945"/>
+<ellipse cx="28.50" cy="8.50" rx="0.425" ry="0.339" transform="rotate(56.3 28.50 8.50)" fill="#202945"/>
 <circle cx="29.43" cy="8.62" r="0.050" fill="#b7b7b7"/>
-<circle cx="30.50" cy="8.50" r="0.353" fill="#202945"/>
+<ellipse cx="30.50" cy="8.50" rx="0.454" ry="0.353" transform="rotate(60.3 30.50 8.50)" fill="#202945"/>
 <circle cx="31.55" cy="8.32" r="0.050" fill="#b7b7b7"/>
-<circle cx="32.50" cy="8.50" r="0.357" fill="#202945"/>
-<circle cx="0.50" cy="9.50" r="0.371" fill="#202945"/>
+<ellipse cx="32.50" cy="8.50" rx="0.470" ry="0.357" transform="rotate(63.4 32.50 8.50)" fill="#202945"/>
+<ellipse cx="0.50" cy="9.50" rx="0.486" ry="0.371" transform="rotate(-66.4 0.50 9.50)" fill="#202945"/>
 <circle cx="1.46" cy="9.52" r="0.050" fill="#b7b7b7"/>
-<circle cx="2.50" cy="9.50" r="0.323" fill="#202945"/>
-<circle cx="4.50" cy="9.50" r="0.334" fill="#202945"/>
-<circle cx="5.50" cy="9.50" r="0.325" fill="#202945"/>
+<ellipse cx="2.50" cy="9.50" rx="0.412" ry="0.323" transform="rotate(-63.4 2.50 9.50)" fill="#202945"/>
+<ellipse cx="4.50" cy="9.50" rx="0.416" ry="0.334" transform="rotate(-59.7 4.50 9.50)" fill="#202945"/>
+<ellipse cx="5.50" cy="9.50" rx="0.400" ry="0.325" transform="rotate(-57.5 5.50 9.50)" fill="#202945"/>
 <circle cx="6.51" cy="9.33" r="0.050" fill="#b7b7b7"/>
-<circle cx="8.50" cy="9.50" r="0.417" fill="#202945"/>
-<circle cx="9.50" cy="9.50" r="0.457" fill="#202945"/>
+<ellipse cx="8.50" cy="9.50" rx="0.495" ry="0.417" transform="rotate(-48.8 8.50 9.50)" fill="#202945"/>
+<ellipse cx="9.50" cy="9.50" rx="0.500" ry="0.457" transform="rotate(-45.0 9.50 9.50)" fill="#202945"/>
 <circle cx="10.66" cy="9.49" r="0.050" fill="#b7b7b7"/>
-<circle cx="12.50" cy="9.50" r="0.463" fill="#202945"/>
+<ellipse cx="12.50" cy="9.50" rx="0.500" ry="0.463" transform="rotate(-29.7 12.50 9.50)" fill="#202945"/>
 <circle cx="13.49" cy="9.58" r="0.050" fill="#b7b7b7"/>
-<circle cx="14.50" cy="9.50" r="0.415" fill="#202945"/>
+<ellipse cx="14.50" cy="9.50" rx="0.468" ry="0.415" transform="rotate(-15.9 14.50 9.50)" fill="#202945"/>
 <circle cx="15.59" cy="9.66" r="0.050" fill="#b7b7b7"/>
-<circle cx="16.50" cy="9.50" r="0.468" fill="#202945"/>
-<circle cx="17.50" cy="9.50" r="0.437" fill="#202945"/>
-<circle cx="18.50" cy="9.50" r="0.410" fill="#202945"/>
-<circle cx="20.50" cy="9.50" r="0.429" fill="#202945"/>
+<ellipse cx="16.50" cy="9.50" rx="0.500" ry="0.468" transform="rotate(0.0 16.50 9.50)" fill="#202945"/>
+<ellipse cx="17.50" cy="9.50" rx="0.492" ry="0.437" transform="rotate(8.1 17.50 9.50)" fill="#202945"/>
+<ellipse cx="18.50" cy="9.50" rx="0.463" ry="0.410" transform="rotate(15.9 18.50 9.50)" fill="#202945"/>
+<ellipse cx="20.50" cy="9.50" rx="0.490" ry="0.429" transform="rotate(29.7 20.50 9.50)" fill="#202945"/>
 <circle cx="21.33" cy="9.60" r="0.050" fill="#b7b7b7"/>
-<circle cx="22.50" cy="9.50" r="0.361" fill="#202945"/>
-<circle cx="23.50" cy="9.50" r="0.411" fill="#202945"/>
-<circle cx="25.50" cy="9.50" r="0.419" fill="#202945"/>
-<circle cx="27.50" cy="9.50" r="0.364" fill="#202945"/>
-<circle cx="28.50" cy="9.50" r="0.364" fill="#202945"/>
-<circle cx="29.50" cy="9.50" r="0.432" fill="#202945"/>
-<circle cx="31.50" cy="9.50" r="0.321" fill="#202945"/>
-<circle cx="0.50" cy="10.50" r="0.309" fill="#202945"/>
-<circle cx="1.50" cy="10.50" r="0.358" fill="#202945"/>
-<circle cx="2.50" cy="10.50" r="0.338" fill="#202945"/>
-<circle cx="3.50" cy="10.50" r="0.350" fill="#202945"/>
+<ellipse cx="22.50" cy="9.50" rx="0.420" ry="0.361" transform="rotate(40.6 22.50 9.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="9.50" rx="0.483" ry="0.411" transform="rotate(45.0 23.50 9.50)" fill="#202945"/>
+<ellipse cx="25.50" cy="9.50" rx="0.500" ry="0.419" transform="rotate(52.1 25.50 9.50)" fill="#202945"/>
+<ellipse cx="27.50" cy="9.50" rx="0.448" ry="0.364" transform="rotate(57.5 27.50 9.50)" fill="#202945"/>
+<ellipse cx="28.50" cy="9.50" rx="0.453" ry="0.364" transform="rotate(59.7 28.50 9.50)" fill="#202945"/>
+<ellipse cx="29.50" cy="9.50" rx="0.500" ry="0.432" transform="rotate(61.7 29.50 9.50)" fill="#202945"/>
+<ellipse cx="31.50" cy="9.50" rx="0.415" ry="0.321" transform="rotate(65.0 31.50 9.50)" fill="#202945"/>
+<ellipse cx="0.50" cy="10.50" rx="0.402" ry="0.309" transform="rotate(-69.4 0.50 10.50)" fill="#202945"/>
+<ellipse cx="1.50" cy="10.50" rx="0.460" ry="0.358" transform="rotate(-68.2 1.50 10.50)" fill="#202945"/>
+<ellipse cx="2.50" cy="10.50" rx="0.429" ry="0.338" transform="rotate(-66.8 2.50 10.50)" fill="#202945"/>
+<ellipse cx="3.50" cy="10.50" rx="0.439" ry="0.350" transform="rotate(-65.2 3.50 10.50)" fill="#202945"/>
 <circle cx="4.65" cy="10.58" r="0.050" fill="#b7b7b7"/>
-<circle cx="6.50" cy="10.50" r="0.374" fill="#202945"/>
-<circle cx="8.50" cy="10.50" r="0.400" fill="#202945"/>
-<circle cx="10.50" cy="10.50" r="0.382" fill="#202945"/>
-<circle cx="11.50" cy="10.50" r="0.372" fill="#202945"/>
+<ellipse cx="6.50" cy="10.50" rx="0.451" ry="0.374" transform="rotate(-59.0 6.50 10.50)" fill="#202945"/>
+<ellipse cx="8.50" cy="10.50" rx="0.471" ry="0.400" transform="rotate(-53.1 8.50 10.50)" fill="#202945"/>
+<ellipse cx="10.50" cy="10.50" rx="0.439" ry="0.382" transform="rotate(-45.0 10.50 10.50)" fill="#202945"/>
+<ellipse cx="11.50" cy="10.50" rx="0.423" ry="0.372" transform="rotate(-39.8 11.50 10.50)" fill="#202945"/>
 <circle cx="13.36" cy="10.38" r="0.050" fill="#b7b7b7"/>
-<circle cx="14.50" cy="10.50" r="0.418" fill="#202945"/>
-<circle cx="15.50" cy="10.50" r="0.438" fill="#202945"/>
-<circle cx="16.50" cy="10.50" r="0.397" fill="#202945"/>
-<circle cx="18.50" cy="10.50" r="0.481" fill="#202945"/>
+<ellipse cx="14.50" cy="10.50" rx="0.465" ry="0.418" transform="rotate(-18.4 14.50 10.50)" fill="#202945"/>
+<ellipse cx="15.50" cy="10.50" rx="0.485" ry="0.438" transform="rotate(-9.5 15.50 10.50)" fill="#202945"/>
+<ellipse cx="16.50" cy="10.50" rx="0.439" ry="0.397" transform="rotate(0.0 16.50 10.50)" fill="#202945"/>
+<ellipse cx="18.50" cy="10.50" rx="0.500" ry="0.481" transform="rotate(18.4 18.50 10.50)" fill="#202945"/>
 <circle cx="19.46" cy="10.57" r="0.050" fill="#b7b7b7"/>
-<circle cx="20.50" cy="10.50" r="0.461" fill="#202945"/>
-<circle cx="21.50" cy="10.50" r="0.417" fill="#202945"/>
+<ellipse cx="20.50" cy="10.50" rx="0.500" ry="0.461" transform="rotate(33.7 20.50 10.50)" fill="#202945"/>
+<ellipse cx="21.50" cy="10.50" rx="0.475" ry="0.417" transform="rotate(39.8 21.50 10.50)" fill="#202945"/>
 <circle cx="23.50" cy="10.50" r="0.050" fill="#b7b7b7"/>
-<circle cx="24.50" cy="10.50" r="0.458" fill="#202945"/>
-<circle cx="25.50" cy="10.50" r="0.375" fill="#202945"/>
-<circle cx="26.50" cy="10.50" r="0.389" fill="#202945"/>
-<circle cx="27.50" cy="10.50" r="0.345" fill="#202945"/>
+<ellipse cx="24.50" cy="10.50" rx="0.500" ry="0.458" transform="rotate(53.1 24.50 10.50)" fill="#202945"/>
+<ellipse cx="25.50" cy="10.50" rx="0.446" ry="0.375" transform="rotate(56.3 25.50 10.50)" fill="#202945"/>
+<ellipse cx="26.50" cy="10.50" rx="0.469" ry="0.389" transform="rotate(59.0 26.50 10.50)" fill="#202945"/>
+<ellipse cx="27.50" cy="10.50" rx="0.421" ry="0.345" transform="rotate(61.4 27.50 10.50)" fill="#202945"/>
 <circle cx="28.69" cy="10.66" r="0.050" fill="#b7b7b7"/>
 <circle cx="30.36" cy="10.40" r="0.050" fill="#b7b7b7"/>
-<circle cx="31.50" cy="10.50" r="0.358" fill="#202945"/>
-<circle cx="1.50" cy="11.50" r="0.356" fill="#202945"/>
-<circle cx="2.50" cy="11.50" r="0.420" fill="#202945"/>
+<ellipse cx="31.50" cy="10.50" rx="0.460" ry="0.358" transform="rotate(68.2 31.50 10.50)" fill="#202945"/>
+<ellipse cx="1.50" cy="11.50" rx="0.456" ry="0.356" transform="rotate(-71.6 1.50 11.50)" fill="#202945"/>
+<ellipse cx="2.50" cy="11.50" rx="0.500" ry="0.420" transform="rotate(-70.3 2.50 11.50)" fill="#202945"/>
 <circle cx="3.33" cy="11.65" r="0.050" fill="#b7b7b7"/>
 <circle cx="4.39" cy="11.32" r="0.050" fill="#b7b7b7"/>
 <circle cx="5.64" cy="11.43" r="0.050" fill="#b7b7b7"/>
 <circle cx="6.36" cy="11.56" r="0.050" fill="#b7b7b7"/>
 <circle cx="7.50" cy="11.50" r="0.500" fill="#202945"/>
-<circle cx="8.50" cy="11.50" r="0.416" fill="#202945"/>
-<circle cx="9.50" cy="11.50" r="0.449" fill="#202945"/>
-<circle cx="11.50" cy="11.50" r="0.432" fill="#202945"/>
-<circle cx="15.50" cy="11.50" r="0.492" fill="#202945"/>
-<circle cx="16.50" cy="11.50" r="0.467" fill="#202945"/>
-<circle cx="18.50" cy="11.50" r="0.407" fill="#202945"/>
-<circle cx="22.50" cy="11.50" r="0.416" fill="#202945"/>
-<circle cx="23.50" cy="11.50" r="0.439" fill="#202945"/>
+<ellipse cx="8.50" cy="11.50" rx="0.485" ry="0.416" transform="rotate(-58.0 8.50 11.50)" fill="#202945"/>
+<ellipse cx="9.50" cy="11.50" rx="0.500" ry="0.449" transform="rotate(-54.5 9.50 11.50)" fill="#202945"/>
+<ellipse cx="11.50" cy="11.50" rx="0.486" ry="0.432" transform="rotate(-45.0 11.50 11.50)" fill="#202945"/>
+<ellipse cx="15.50" cy="11.50" rx="0.500" ry="0.492" transform="rotate(-11.3 15.50 11.50)" fill="#202945"/>
+<ellipse cx="16.50" cy="11.50" rx="0.500" ry="0.467" transform="rotate(0.0 16.50 11.50)" fill="#202945"/>
+<ellipse cx="18.50" cy="11.50" rx="0.446" ry="0.407" transform="rotate(21.8 18.50 11.50)" fill="#202945"/>
+<ellipse cx="22.50" cy="11.50" rx="0.473" ry="0.416" transform="rotate(50.2 22.50 11.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="11.50" rx="0.500" ry="0.439" transform="rotate(54.5 23.50 11.50)" fill="#202945"/>
 <circle cx="26.50" cy="11.50" r="0.500" fill="#202945"/>
-<circle cx="27.50" cy="11.50" r="0.401" fill="#202945"/>
-<circle cx="29.50" cy="11.50" r="0.313" fill="#202945"/>
-<circle cx="30.50" cy="11.50" r="0.362" fill="#202945"/>
-<circle cx="31.50" cy="11.50" r="0.339" fill="#202945"/>
-<circle cx="32.50" cy="11.50" r="0.311" fill="#202945"/>
-<circle cx="0.50" cy="12.50" r="0.298" fill="#202945"/>
-<circle cx="2.50" cy="12.50" r="0.457" fill="#202945"/>
+<ellipse cx="27.50" cy="11.50" rx="0.487" ry="0.401" transform="rotate(65.6 27.50 11.50)" fill="#202945"/>
+<ellipse cx="29.50" cy="11.50" rx="0.390" ry="0.313" transform="rotate(69.0 29.50 11.50)" fill="#202945"/>
+<ellipse cx="30.50" cy="11.50" rx="0.457" ry="0.362" transform="rotate(70.3 30.50 11.50)" fill="#202945"/>
+<ellipse cx="31.50" cy="11.50" rx="0.434" ry="0.339" transform="rotate(71.6 31.50 11.50)" fill="#202945"/>
+<ellipse cx="32.50" cy="11.50" rx="0.403" ry="0.311" transform="rotate(72.6 32.50 11.50)" fill="#202945"/>
+<ellipse cx="0.50" cy="12.50" rx="0.385" ry="0.298" transform="rotate(-76.0 0.50 12.50)" fill="#202945"/>
+<ellipse cx="2.50" cy="12.50" rx="0.500" ry="0.457" transform="rotate(-74.1 2.50 12.50)" fill="#202945"/>
 <circle cx="3.46" cy="12.62" r="0.050" fill="#b7b7b7"/>
-<circle cx="4.50" cy="12.50" r="0.330" fill="#202945"/>
-<circle cx="6.50" cy="12.50" r="0.363" fill="#202945"/>
+<ellipse cx="4.50" cy="12.50" rx="0.404" ry="0.330" transform="rotate(-71.6 4.50 12.50)" fill="#202945"/>
+<ellipse cx="6.50" cy="12.50" rx="0.432" ry="0.363" transform="rotate(-68.2 6.50 12.50)" fill="#202945"/>
 <circle cx="7.63" cy="12.32" r="0.050" fill="#b7b7b7"/>
-<circle cx="8.50" cy="12.50" r="0.361" fill="#202945"/>
-<circle cx="9.50" cy="12.50" r="0.407" fill="#202945"/>
-<circle cx="13.50" cy="12.50" r="0.460" fill="#202945"/>
-<circle cx="14.50" cy="12.50" r="0.408" fill="#202945"/>
-<circle cx="15.50" cy="12.50" r="0.499" fill="#202945"/>
-<circle cx="18.50" cy="12.50" r="0.433" fill="#202945"/>
+<ellipse cx="8.50" cy="12.50" rx="0.418" ry="0.361" transform="rotate(-63.4 8.50 12.50)" fill="#202945"/>
+<ellipse cx="9.50" cy="12.50" rx="0.465" ry="0.407" transform="rotate(-60.3 9.50 12.50)" fill="#202945"/>
+<ellipse cx="13.50" cy="12.50" rx="0.500" ry="0.460" transform="rotate(-36.9 13.50 12.50)" fill="#202945"/>
+<ellipse cx="14.50" cy="12.50" rx="0.440" ry="0.408" transform="rotate(-26.6 14.50 12.50)" fill="#202945"/>
+<ellipse cx="15.50" cy="12.50" rx="0.500" ry="0.499" transform="rotate(-14.0 15.50 12.50)" fill="#202945"/>
+<ellipse cx="18.50" cy="12.50" rx="0.467" ry="0.433" transform="rotate(26.6 18.50 12.50)" fill="#202945"/>
 <circle cx="19.49" cy="12.36" r="0.050" fill="#b7b7b7"/>
-<circle cx="20.50" cy="12.50" r="0.387" fill="#202945"/>
-<circle cx="21.50" cy="12.50" r="0.442" fill="#202945"/>
-<circle cx="22.50" cy="12.50" r="0.436" fill="#202945"/>
+<ellipse cx="20.50" cy="12.50" rx="0.426" ry="0.387" transform="rotate(45.0 20.50 12.50)" fill="#202945"/>
+<ellipse cx="21.50" cy="12.50" rx="0.492" ry="0.442" transform="rotate(51.3 21.50 12.50)" fill="#202945"/>
+<ellipse cx="22.50" cy="12.50" rx="0.492" ry="0.436" transform="rotate(56.3 22.50 12.50)" fill="#202945"/>
 <circle cx="23.52" cy="12.44" r="0.050" fill="#b7b7b7"/>
-<circle cx="24.50" cy="12.50" r="0.395" fill="#202945"/>
-<circle cx="26.50" cy="12.50" r="0.398" fill="#202945"/>
-<circle cx="28.50" cy="12.50" r="0.378" fill="#202945"/>
-<circle cx="29.50" cy="12.50" r="0.356" fill="#202945"/>
+<ellipse cx="24.50" cy="12.50" rx="0.458" ry="0.395" transform="rotate(63.4 24.50 12.50)" fill="#202945"/>
+<ellipse cx="26.50" cy="12.50" rx="0.474" ry="0.398" transform="rotate(68.2 26.50 12.50)" fill="#202945"/>
+<ellipse cx="28.50" cy="12.50" rx="0.463" ry="0.378" transform="rotate(71.6 28.50 12.50)" fill="#202945"/>
+<ellipse cx="29.50" cy="12.50" rx="0.442" ry="0.356" transform="rotate(72.9 29.50 12.50)" fill="#202945"/>
 <circle cx="31.35" cy="12.57" r="0.050" fill="#b7b7b7"/>
-<circle cx="32.50" cy="12.50" r="0.342" fill="#202945"/>
-<circle cx="1.50" cy="13.50" r="0.312" fill="#202945"/>
-<circle cx="2.50" cy="13.50" r="0.398" fill="#202945"/>
-<circle cx="3.50" cy="13.50" r="0.388" fill="#202945"/>
-<circle cx="5.50" cy="13.50" r="0.454" fill="#202945"/>
-<circle cx="7.50" cy="13.50" r="0.460" fill="#202945"/>
-<circle cx="9.50" cy="13.50" r="0.448" fill="#202945"/>
-<circle cx="10.50" cy="13.50" r="0.396" fill="#202945"/>
-<circle cx="16.50" cy="13.50" r="0.407" fill="#202945"/>
-<circle cx="17.50" cy="13.50" r="0.403" fill="#202945"/>
-<circle cx="20.50" cy="13.50" r="0.484" fill="#202945"/>
-<circle cx="21.50" cy="13.50" r="0.481" fill="#202945"/>
-<circle cx="22.50" cy="13.50" r="0.445" fill="#202945"/>
-<circle cx="23.50" cy="13.50" r="0.427" fill="#202945"/>
+<ellipse cx="32.50" cy="12.50" rx="0.442" ry="0.342" transform="rotate(76.0 32.50 12.50)" fill="#202945"/>
+<ellipse cx="1.50" cy="13.50" rx="0.397" ry="0.312" transform="rotate(-78.7 1.50 13.50)" fill="#202945"/>
+<ellipse cx="2.50" cy="13.50" rx="0.499" ry="0.398" transform="rotate(-77.9 2.50 13.50)" fill="#202945"/>
+<ellipse cx="3.50" cy="13.50" rx="0.479" ry="0.388" transform="rotate(-77.0 3.50 13.50)" fill="#202945"/>
+<ellipse cx="5.50" cy="13.50" rx="0.500" ry="0.454" transform="rotate(-74.7 5.50 13.50)" fill="#202945"/>
+<ellipse cx="7.50" cy="13.50" rx="0.500" ry="0.460" transform="rotate(-71.6 7.50 13.50)" fill="#202945"/>
+<ellipse cx="9.50" cy="13.50" rx="0.500" ry="0.448" transform="rotate(-66.8 9.50 13.50)" fill="#202945"/>
+<ellipse cx="10.50" cy="13.50" rx="0.443" ry="0.396" transform="rotate(-63.4 10.50 13.50)" fill="#202945"/>
+<ellipse cx="16.50" cy="13.50" rx="0.428" ry="0.407" transform="rotate(0.0 16.50 13.50)" fill="#202945"/>
+<ellipse cx="17.50" cy="13.50" rx="0.425" ry="0.403" transform="rotate(18.4 17.50 13.50)" fill="#202945"/>
+<ellipse cx="20.50" cy="13.50" rx="0.500" ry="0.484" transform="rotate(53.1 20.50 13.50)" fill="#202945"/>
+<ellipse cx="21.50" cy="13.50" rx="0.500" ry="0.481" transform="rotate(59.0 21.50 13.50)" fill="#202945"/>
+<ellipse cx="22.50" cy="13.50" rx="0.497" ry="0.445" transform="rotate(63.4 22.50 13.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="13.50" rx="0.484" ry="0.427" transform="rotate(66.8 23.50 13.50)" fill="#202945"/>
 <circle cx="24.34" cy="13.63" r="0.050" fill="#b7b7b7"/>
 <circle cx="26.50" cy="13.50" r="0.500" fill="#202945"/>
 <circle cx="29.35" cy="13.47" r="0.050" fill="#b7b7b7"/>
-<circle cx="30.50" cy="13.50" r="0.368" fill="#202945"/>
-<circle cx="32.50" cy="13.50" r="0.369" fill="#202945"/>
-<circle cx="0.50" cy="14.50" r="0.329" fill="#202945"/>
-<circle cx="1.50" cy="14.50" r="0.311" fill="#202945"/>
-<circle cx="2.50" cy="14.50" r="0.377" fill="#202945"/>
+<ellipse cx="30.50" cy="13.50" rx="0.461" ry="0.368" transform="rotate(77.9 30.50 13.50)" fill="#202945"/>
+<ellipse cx="32.50" cy="13.50" rx="0.475" ry="0.369" transform="rotate(79.4 32.50 13.50)" fill="#202945"/>
+<ellipse cx="0.50" cy="14.50" rx="0.422" ry="0.329" transform="rotate(-82.9 0.50 14.50)" fill="#202945"/>
+<ellipse cx="1.50" cy="14.50" rx="0.395" ry="0.311" transform="rotate(-82.4 1.50 14.50)" fill="#202945"/>
+<ellipse cx="2.50" cy="14.50" rx="0.471" ry="0.377" transform="rotate(-81.9 2.50 14.50)" fill="#202945"/>
 <circle cx="4.48" cy="14.57" r="0.050" fill="#b7b7b7"/>
-<circle cx="5.50" cy="14.50" r="0.419" fill="#202945"/>
-<circle cx="6.50" cy="14.50" r="0.483" fill="#202945"/>
-<circle cx="8.50" cy="14.50" r="0.435" fill="#202945"/>
+<ellipse cx="5.50" cy="14.50" rx="0.500" ry="0.419" transform="rotate(-79.7 5.50 14.50)" fill="#202945"/>
+<ellipse cx="6.50" cy="14.50" rx="0.500" ry="0.483" transform="rotate(-78.7 6.50 14.50)" fill="#202945"/>
+<ellipse cx="8.50" cy="14.50" rx="0.499" ry="0.435" transform="rotate(-76.0 8.50 14.50)" fill="#202945"/>
 <circle cx="9.33" cy="14.44" r="0.050" fill="#b7b7b7"/>
-<circle cx="10.50" cy="14.50" r="0.382" fill="#202945"/>
+<ellipse cx="10.50" cy="14.50" rx="0.425" ry="0.382" transform="rotate(-71.6 10.50 14.50)" fill="#202945"/>
 <circle cx="11.30" cy="14.69" r="0.050" fill="#b7b7b7"/>
-<circle cx="12.50" cy="14.50" r="0.479" fill="#202945"/>
+<ellipse cx="12.50" cy="14.50" rx="0.500" ry="0.479" transform="rotate(-63.4 12.50 14.50)" fill="#202945"/>
 <circle cx="13.66" cy="14.38" r="0.050" fill="#b7b7b7"/>
 <circle cx="14.57" cy="14.68" r="0.050" fill="#b7b7b7"/>
 <circle cx="15.30" cy="14.45" r="0.050" fill="#b7b7b7"/>
 <circle cx="16.54" cy="14.64" r="0.050" fill="#b7b7b7"/>
 <circle cx="17.34" cy="14.44" r="0.050" fill="#b7b7b7"/>
 <circle cx="18.50" cy="14.50" r="0.504" fill="#202945"/>
-<circle cx="19.50" cy="14.50" r="0.410" fill="#202945"/>
-<circle cx="20.50" cy="14.50" r="0.495" fill="#202945"/>
-<circle cx="22.50" cy="14.50" r="0.428" fill="#202945"/>
+<ellipse cx="19.50" cy="14.50" rx="0.436" ry="0.410" transform="rotate(56.3 19.50 14.50)" fill="#202945"/>
+<ellipse cx="20.50" cy="14.50" rx="0.500" ry="0.495" transform="rotate(63.4 20.50 14.50)" fill="#202945"/>
+<ellipse cx="22.50" cy="14.50" rx="0.476" ry="0.428" transform="rotate(71.6 22.50 14.50)" fill="#202945"/>
 <circle cx="23.67" cy="14.68" r="0.050" fill="#b7b7b7"/>
 <circle cx="25.70" cy="14.34" r="0.050" fill="#b7b7b7"/>
 <circle cx="27.66" cy="14.68" r="0.050" fill="#b7b7b7"/>
-<circle cx="29.50" cy="14.50" r="0.348" fill="#202945"/>
-<circle cx="30.50" cy="14.50" r="0.332" fill="#202945"/>
-<circle cx="31.50" cy="14.50" r="0.366" fill="#202945"/>
+<ellipse cx="29.50" cy="14.50" rx="0.428" ry="0.348" transform="rotate(81.3 29.50 14.50)" fill="#202945"/>
+<ellipse cx="30.50" cy="14.50" rx="0.415" ry="0.332" transform="rotate(81.9 30.50 14.50)" fill="#202945"/>
+<ellipse cx="31.50" cy="14.50" rx="0.463" ry="0.366" transform="rotate(82.4 31.50 14.50)" fill="#202945"/>
 <circle cx="32.47" cy="14.32" r="0.050" fill="#b7b7b7"/>
-<circle cx="0.50" cy="15.50" r="0.307" fill="#202945"/>
-<circle cx="1.50" cy="15.50" r="0.313" fill="#202945"/>
-<circle cx="2.50" cy="15.50" r="0.319" fill="#202945"/>
-<circle cx="3.50" cy="15.50" r="0.327" fill="#202945"/>
-<circle cx="4.50" cy="15.50" r="0.368" fill="#202945"/>
-<circle cx="7.50" cy="15.50" r="0.371" fill="#202945"/>
-<circle cx="8.50" cy="15.50" r="0.407" fill="#202945"/>
-<circle cx="9.50" cy="15.50" r="0.438" fill="#202945"/>
+<ellipse cx="0.50" cy="15.50" rx="0.394" ry="0.307" transform="rotate(-86.4 0.50 15.50)" fill="#202945"/>
+<ellipse cx="1.50" cy="15.50" rx="0.396" ry="0.313" transform="rotate(-86.2 1.50 15.50)" fill="#202945"/>
+<ellipse cx="2.50" cy="15.50" rx="0.398" ry="0.319" transform="rotate(-85.9 2.50 15.50)" fill="#202945"/>
+<ellipse cx="3.50" cy="15.50" rx="0.403" ry="0.327" transform="rotate(-85.6 3.50 15.50)" fill="#202945"/>
+<ellipse cx="4.50" cy="15.50" rx="0.446" ry="0.368" transform="rotate(-85.2 4.50 15.50)" fill="#202945"/>
+<ellipse cx="7.50" cy="15.50" rx="0.430" ry="0.371" transform="rotate(-83.7 7.50 15.50)" fill="#202945"/>
+<ellipse cx="8.50" cy="15.50" rx="0.465" ry="0.407" transform="rotate(-82.9 8.50 15.50)" fill="#202945"/>
+<ellipse cx="9.50" cy="15.50" rx="0.493" ry="0.438" transform="rotate(-81.9 9.50 15.50)" fill="#202945"/>
 <circle cx="10.48" cy="15.45" r="0.050" fill="#b7b7b7"/>
 <circle cx="12.46" cy="15.47" r="0.050" fill="#b7b7b7"/>
-<circle cx="14.50" cy="15.50" r="0.436" fill="#202945"/>
+<ellipse cx="14.50" cy="15.50" rx="0.454" ry="0.436" transform="rotate(-63.4 14.50 15.50)" fill="#202945"/>
 <circle cx="15.42" cy="15.49" r="0.050" fill="#b7b7b7"/>
-<circle cx="17.50" cy="15.50" r="0.491" fill="#202945"/>
-<circle cx="18.50" cy="15.50" r="0.432" fill="#202945"/>
-<circle cx="24.50" cy="15.50" r="0.442" fill="#202945"/>
-<circle cx="25.50" cy="15.50" r="0.399" fill="#202945"/>
-<circle cx="26.50" cy="15.50" r="0.402" fill="#202945"/>
-<circle cx="28.50" cy="15.50" r="0.414" fill="#202945"/>
+<ellipse cx="17.50" cy="15.50" rx="0.500" ry="0.491" transform="rotate(45.0 17.50 15.50)" fill="#202945"/>
+<ellipse cx="18.50" cy="15.50" rx="0.449" ry="0.432" transform="rotate(63.4 18.50 15.50)" fill="#202945"/>
+<ellipse cx="24.50" cy="15.50" rx="0.500" ry="0.442" transform="rotate(82.9 24.50 15.50)" fill="#202945"/>
+<ellipse cx="25.50" cy="15.50" rx="0.463" ry="0.399" transform="rotate(83.7 25.50 15.50)" fill="#202945"/>
+<ellipse cx="26.50" cy="15.50" rx="0.473" ry="0.402" transform="rotate(84.3 26.50 15.50)" fill="#202945"/>
+<ellipse cx="28.50" cy="15.50" rx="0.500" ry="0.414" transform="rotate(85.2 28.50 15.50)" fill="#202945"/>
 <circle cx="29.48" cy="15.55" r="0.050" fill="#b7b7b7"/>
-<circle cx="30.50" cy="15.50" r="0.353" fill="#202945"/>
-<circle cx="31.50" cy="15.50" r="0.329" fill="#202945"/>
-<circle cx="32.50" cy="15.50" r="0.296" fill="#202945"/>
-<circle cx="1.50" cy="16.50" r="0.371" fill="#202945"/>
-<circle cx="2.50" cy="16.50" r="0.313" fill="#202945"/>
+<ellipse cx="30.50" cy="15.50" rx="0.441" ry="0.353" transform="rotate(85.9 30.50 15.50)" fill="#202945"/>
+<ellipse cx="31.50" cy="15.50" rx="0.416" ry="0.329" transform="rotate(86.2 31.50 15.50)" fill="#202945"/>
+<ellipse cx="32.50" cy="15.50" rx="0.380" ry="0.296" transform="rotate(86.4 32.50 15.50)" fill="#202945"/>
+<ellipse cx="1.50" cy="16.50" rx="0.470" ry="0.371" transform="rotate(270.0 1.50 16.50)" fill="#202945"/>
+<ellipse cx="2.50" cy="16.50" rx="0.391" ry="0.313" transform="rotate(270.0 2.50 16.50)" fill="#202945"/>
 <circle cx="3.61" cy="16.55" r="0.050" fill="#b7b7b7"/>
 <circle cx="5.58" cy="16.49" r="0.050" fill="#b7b7b7"/>
-<circle cx="6.50" cy="16.50" r="0.459" fill="#202945"/>
-<circle cx="7.50" cy="16.50" r="0.431" fill="#202945"/>
-<circle cx="8.50" cy="16.50" r="0.389" fill="#202945"/>
+<ellipse cx="6.50" cy="16.50" rx="0.500" ry="0.459" transform="rotate(270.0 6.50 16.50)" fill="#202945"/>
+<ellipse cx="7.50" cy="16.50" rx="0.500" ry="0.431" transform="rotate(270.0 7.50 16.50)" fill="#202945"/>
+<ellipse cx="8.50" cy="16.50" rx="0.444" ry="0.389" transform="rotate(270.0 8.50 16.50)" fill="#202945"/>
 <circle cx="10.69" cy="16.35" r="0.050" fill="#b7b7b7"/>
 <circle cx="12.40" cy="16.51" r="0.050" fill="#b7b7b7"/>
-<circle cx="13.50" cy="16.50" r="0.462" fill="#202945"/>
+<ellipse cx="13.50" cy="16.50" rx="0.486" ry="0.462" transform="rotate(270.0 13.50 16.50)" fill="#202945"/>
 <circle cx="15.40" cy="16.41" r="0.050" fill="#b7b7b7"/>
 <circle cx="16.50" cy="16.50" r="0.488" fill="#202945"/>
-<circle cx="18.50" cy="16.50" r="0.467" fill="#202945"/>
-<circle cx="19.50" cy="16.50" r="0.402" fill="#202945"/>
+<ellipse cx="18.50" cy="16.50" rx="0.484" ry="0.467" transform="rotate(90.0 18.50 16.50)" fill="#202945"/>
+<ellipse cx="19.50" cy="16.50" rx="0.424" ry="0.402" transform="rotate(90.0 19.50 16.50)" fill="#202945"/>
 <circle cx="21.44" cy="16.51" r="0.050" fill="#b7b7b7"/>
 <circle cx="22.67" cy="16.37" r="0.050" fill="#b7b7b7"/>
-<circle cx="23.50" cy="16.50" r="0.416" fill="#202945"/>
+<ellipse cx="23.50" cy="16.50" rx="0.468" ry="0.416" transform="rotate(90.0 23.50 16.50)" fill="#202945"/>
 <circle cx="24.51" cy="16.53" r="0.050" fill="#b7b7b7"/>
-<circle cx="25.50" cy="16.50" r="0.418" fill="#202945"/>
-<circle cx="27.50" cy="16.50" r="0.436" fill="#202945"/>
-<circle cx="28.50" cy="16.50" r="0.387" fill="#202945"/>
-<circle cx="29.50" cy="16.50" r="0.357" fill="#202945"/>
-<circle cx="30.50" cy="16.50" r="0.379" fill="#202945"/>
-<circle cx="32.50" cy="16.50" r="0.320" fill="#202945"/>
-<circle cx="0.50" cy="17.50" r="0.326" fill="#202945"/>
-<circle cx="1.50" cy="17.50" r="0.365" fill="#202945"/>
+<ellipse cx="25.50" cy="16.50" rx="0.485" ry="0.418" transform="rotate(90.0 25.50 16.50)" fill="#202945"/>
+<ellipse cx="27.50" cy="16.50" rx="0.500" ry="0.436" transform="rotate(90.0 27.50 16.50)" fill="#202945"/>
+<ellipse cx="28.50" cy="16.50" rx="0.470" ry="0.387" transform="rotate(90.0 28.50 16.50)" fill="#202945"/>
+<ellipse cx="29.50" cy="16.50" rx="0.439" ry="0.357" transform="rotate(90.0 29.50 16.50)" fill="#202945"/>
+<ellipse cx="30.50" cy="16.50" rx="0.473" ry="0.379" transform="rotate(90.0 30.50 16.50)" fill="#202945"/>
+<ellipse cx="32.50" cy="16.50" rx="0.410" ry="0.320" transform="rotate(90.0 32.50 16.50)" fill="#202945"/>
+<ellipse cx="0.50" cy="17.50" rx="0.418" ry="0.326" transform="rotate(266.4 0.50 17.50)" fill="#202945"/>
+<ellipse cx="1.50" cy="17.50" rx="0.462" ry="0.365" transform="rotate(266.2 1.50 17.50)" fill="#202945"/>
 <circle cx="2.58" cy="17.45" r="0.050" fill="#b7b7b7"/>
-<circle cx="3.50" cy="17.50" r="0.373" fill="#202945"/>
-<circle cx="4.50" cy="17.50" r="0.342" fill="#202945"/>
-<circle cx="7.50" cy="17.50" r="0.403" fill="#202945"/>
-<circle cx="8.50" cy="17.50" r="0.407" fill="#202945"/>
-<circle cx="10.50" cy="17.50" r="0.453" fill="#202945"/>
-<circle cx="11.50" cy="17.50" r="0.421" fill="#202945"/>
-<circle cx="12.50" cy="17.50" r="0.463" fill="#202945"/>
-<circle cx="13.50" cy="17.50" r="0.404" fill="#202945"/>
-<circle cx="14.50" cy="17.50" r="0.434" fill="#202945"/>
-<circle cx="15.50" cy="17.50" r="0.485" fill="#202945"/>
+<ellipse cx="3.50" cy="17.50" rx="0.459" ry="0.373" transform="rotate(265.6 3.50 17.50)" fill="#202945"/>
+<ellipse cx="4.50" cy="17.50" rx="0.415" ry="0.342" transform="rotate(265.2 4.50 17.50)" fill="#202945"/>
+<ellipse cx="7.50" cy="17.50" rx="0.467" ry="0.403" transform="rotate(263.7 7.50 17.50)" fill="#202945"/>
+<ellipse cx="8.50" cy="17.50" rx="0.465" ry="0.407" transform="rotate(262.9 8.50 17.50)" fill="#202945"/>
+<ellipse cx="10.50" cy="17.50" rx="0.500" ry="0.453" transform="rotate(260.5 10.50 17.50)" fill="#202945"/>
+<ellipse cx="11.50" cy="17.50" rx="0.459" ry="0.421" transform="rotate(258.7 11.50 17.50)" fill="#202945"/>
+<ellipse cx="12.50" cy="17.50" rx="0.497" ry="0.463" transform="rotate(256.0 12.50 17.50)" fill="#202945"/>
+<ellipse cx="13.50" cy="17.50" rx="0.427" ry="0.404" transform="rotate(251.6 13.50 17.50)" fill="#202945"/>
+<ellipse cx="14.50" cy="17.50" rx="0.451" ry="0.434" transform="rotate(243.4 14.50 17.50)" fill="#202945"/>
+<ellipse cx="15.50" cy="17.50" rx="0.498" ry="0.485" transform="rotate(225.0 15.50 17.50)" fill="#202945"/>
 <circle cx="16.55" cy="17.31" r="0.050" fill="#b7b7b7"/>
-<circle cx="17.50" cy="17.50" r="0.455" fill="#202945"/>
-<circle cx="19.50" cy="17.50" r="0.399" fill="#202945"/>
-<circle cx="20.50" cy="17.50" r="0.450" fill="#202945"/>
-<circle cx="21.50" cy="17.50" r="0.395" fill="#202945"/>
-<circle cx="23.50" cy="17.50" r="0.443" fill="#202945"/>
-<circle cx="24.50" cy="17.50" r="0.439" fill="#202945"/>
-<circle cx="26.50" cy="17.50" r="0.377" fill="#202945"/>
-<circle cx="27.50" cy="17.50" r="0.406" fill="#202945"/>
+<ellipse cx="17.50" cy="17.50" rx="0.467" ry="0.455" transform="rotate(135.0 17.50 17.50)" fill="#202945"/>
+<ellipse cx="19.50" cy="17.50" rx="0.421" ry="0.399" transform="rotate(108.4 19.50 17.50)" fill="#202945"/>
+<ellipse cx="20.50" cy="17.50" rx="0.483" ry="0.450" transform="rotate(104.0 20.50 17.50)" fill="#202945"/>
+<ellipse cx="21.50" cy="17.50" rx="0.430" ry="0.395" transform="rotate(101.3 21.50 17.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="17.50" rx="0.499" ry="0.443" transform="rotate(98.1 23.50 17.50)" fill="#202945"/>
+<ellipse cx="24.50" cy="17.50" rx="0.500" ry="0.439" transform="rotate(97.1 24.50 17.50)" fill="#202945"/>
+<ellipse cx="26.50" cy="17.50" rx="0.444" ry="0.377" transform="rotate(95.7 26.50 17.50)" fill="#202945"/>
+<ellipse cx="27.50" cy="17.50" rx="0.485" ry="0.406" transform="rotate(95.2 27.50 17.50)" fill="#202945"/>
 <circle cx="0.60" cy="18.42" r="0.050" fill="#b7b7b7"/>
 <circle cx="1.48" cy="18.43" r="0.050" fill="#b7b7b7"/>
 <circle cx="2.47" cy="18.66" r="0.050" fill="#b7b7b7"/>
-<circle cx="3.50" cy="18.50" r="0.358" fill="#202945"/>
-<circle cx="5.50" cy="18.50" r="0.496" fill="#202945"/>
-<circle cx="6.50" cy="18.50" r="0.441" fill="#202945"/>
+<ellipse cx="3.50" cy="18.50" rx="0.441" ry="0.358" transform="rotate(261.3 3.50 18.50)" fill="#202945"/>
+<ellipse cx="5.50" cy="18.50" rx="0.500" ry="0.496" transform="rotate(259.7 5.50 18.50)" fill="#202945"/>
+<ellipse cx="6.50" cy="18.50" rx="0.500" ry="0.441" transform="rotate(258.7 6.50 18.50)" fill="#202945"/>
 <circle cx="7.66" cy="18.48" r="0.050" fill="#b7b7b7"/>
-<circle cx="9.50" cy="18.50" r="0.411" fill="#202945"/>
-<circle cx="11.50" cy="18.50" r="0.427" fill="#202945"/>
-<circle cx="12.50" cy="18.50" r="0.415" fill="#202945"/>
-<circle cx="13.50" cy="18.50" r="0.417" fill="#202945"/>
+<ellipse cx="9.50" cy="18.50" rx="0.464" ry="0.411" transform="rotate(254.1 9.50 18.50)" fill="#202945"/>
+<ellipse cx="11.50" cy="18.50" rx="0.467" ry="0.427" transform="rotate(248.2 11.50 18.50)" fill="#202945"/>
+<ellipse cx="12.50" cy="18.50" rx="0.448" ry="0.415" transform="rotate(243.4 12.50 18.50)" fill="#202945"/>
+<ellipse cx="13.50" cy="18.50" rx="0.444" ry="0.417" transform="rotate(236.3 13.50 18.50)" fill="#202945"/>
 <circle cx="14.50" cy="18.50" r="0.502" fill="#202945"/>
-<circle cx="15.50" cy="18.50" r="0.466" fill="#202945"/>
+<ellipse cx="15.50" cy="18.50" rx="0.484" ry="0.466" transform="rotate(206.6 15.50 18.50)" fill="#202945"/>
 <circle cx="16.46" cy="18.39" r="0.050" fill="#b7b7b7"/>
-<circle cx="17.50" cy="18.50" r="0.411" fill="#202945"/>
-<circle cx="18.50" cy="18.50" r="0.420" fill="#202945"/>
-<circle cx="19.50" cy="18.50" r="0.402" fill="#202945"/>
-<circle cx="20.50" cy="18.50" r="0.460" fill="#202945"/>
-<circle cx="21.50" cy="18.50" r="0.404" fill="#202945"/>
-<circle cx="23.50" cy="18.50" r="0.434" fill="#202945"/>
+<ellipse cx="17.50" cy="18.50" rx="0.427" ry="0.411" transform="rotate(153.4 17.50 18.50)" fill="#202945"/>
+<ellipse cx="18.50" cy="18.50" rx="0.441" ry="0.420" transform="rotate(135.0 18.50 18.50)" fill="#202945"/>
+<ellipse cx="19.50" cy="18.50" rx="0.428" ry="0.402" transform="rotate(123.7 19.50 18.50)" fill="#202945"/>
+<ellipse cx="20.50" cy="18.50" rx="0.496" ry="0.460" transform="rotate(116.6 20.50 18.50)" fill="#202945"/>
+<ellipse cx="21.50" cy="18.50" rx="0.442" ry="0.404" transform="rotate(111.8 21.50 18.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="18.50" rx="0.490" ry="0.434" transform="rotate(105.9 23.50 18.50)" fill="#202945"/>
 <circle cx="26.65" cy="18.44" r="0.050" fill="#b7b7b7"/>
-<circle cx="27.50" cy="18.50" r="0.467" fill="#202945"/>
-<circle cx="29.50" cy="18.50" r="0.365" fill="#202945"/>
-<circle cx="30.50" cy="18.50" r="0.393" fill="#202945"/>
-<circle cx="1.50" cy="19.50" r="0.350" fill="#202945"/>
-<circle cx="2.50" cy="19.50" r="0.361" fill="#202945"/>
-<circle cx="3.50" cy="19.50" r="0.379" fill="#202945"/>
-<circle cx="4.50" cy="19.50" r="0.346" fill="#202945"/>
+<ellipse cx="27.50" cy="18.50" rx="0.500" ry="0.467" transform="rotate(100.3 27.50 18.50)" fill="#202945"/>
+<ellipse cx="29.50" cy="18.50" rx="0.450" ry="0.365" transform="rotate(98.7 29.50 18.50)" fill="#202945"/>
+<ellipse cx="30.50" cy="18.50" rx="0.491" ry="0.393" transform="rotate(98.1 30.50 18.50)" fill="#202945"/>
+<ellipse cx="1.50" cy="19.50" rx="0.444" ry="0.350" transform="rotate(258.7 1.50 19.50)" fill="#202945"/>
+<ellipse cx="2.50" cy="19.50" rx="0.453" ry="0.361" transform="rotate(257.9 2.50 19.50)" fill="#202945"/>
+<ellipse cx="3.50" cy="19.50" rx="0.469" ry="0.379" transform="rotate(257.0 3.50 19.50)" fill="#202945"/>
+<ellipse cx="4.50" cy="19.50" rx="0.422" ry="0.346" transform="rotate(256.0 4.50 19.50)" fill="#202945"/>
 <circle cx="5.32" cy="19.37" r="0.050" fill="#b7b7b7"/>
 <circle cx="6.56" cy="19.36" r="0.050" fill="#b7b7b7"/>
-<circle cx="8.50" cy="19.50" r="0.428" fill="#202945"/>
-<circle cx="9.50" cy="19.50" r="0.467" fill="#202945"/>
-<circle cx="10.50" cy="19.50" r="0.417" fill="#202945"/>
-<circle cx="12.50" cy="19.50" r="0.436" fill="#202945"/>
+<ellipse cx="8.50" cy="19.50" rx="0.493" ry="0.428" transform="rotate(249.4 8.50 19.50)" fill="#202945"/>
+<ellipse cx="9.50" cy="19.50" rx="0.500" ry="0.467" transform="rotate(246.8 9.50 19.50)" fill="#202945"/>
+<ellipse cx="10.50" cy="19.50" rx="0.466" ry="0.417" transform="rotate(243.4 10.50 19.50)" fill="#202945"/>
+<ellipse cx="12.50" cy="19.50" rx="0.475" ry="0.436" transform="rotate(233.1 12.50 19.50)" fill="#202945"/>
 <circle cx="13.34" cy="19.65" r="0.050" fill="#b7b7b7"/>
-<circle cx="15.50" cy="19.50" r="0.433" fill="#202945"/>
-<circle cx="16.50" cy="19.50" r="0.448" fill="#202945"/>
-<circle cx="17.50" cy="19.50" r="0.433" fill="#202945"/>
+<ellipse cx="15.50" cy="19.50" rx="0.457" ry="0.433" transform="rotate(198.4 15.50 19.50)" fill="#202945"/>
+<ellipse cx="16.50" cy="19.50" rx="0.472" ry="0.448" transform="rotate(180.0 16.50 19.50)" fill="#202945"/>
+<ellipse cx="17.50" cy="19.50" rx="0.457" ry="0.433" transform="rotate(161.6 17.50 19.50)" fill="#202945"/>
 <circle cx="18.32" cy="19.45" r="0.050" fill="#b7b7b7"/>
-<circle cx="19.50" cy="19.50" r="0.415" fill="#202945"/>
+<ellipse cx="19.50" cy="19.50" rx="0.446" ry="0.415" transform="rotate(135.0 19.50 19.50)" fill="#202945"/>
 <circle cx="21.38" cy="19.57" r="0.050" fill="#b7b7b7"/>
-<circle cx="22.50" cy="19.50" r="0.452" fill="#202945"/>
-<circle cx="23.50" cy="19.50" r="0.400" fill="#202945"/>
-<circle cx="24.50" cy="19.50" r="0.446" fill="#202945"/>
+<ellipse cx="22.50" cy="19.50" rx="0.500" ry="0.452" transform="rotate(116.6 22.50 19.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="19.50" rx="0.454" ry="0.400" transform="rotate(113.2 23.50 19.50)" fill="#202945"/>
+<ellipse cx="24.50" cy="19.50" rx="0.500" ry="0.446" transform="rotate(110.6 24.50 19.50)" fill="#202945"/>
 <circle cx="25.44" cy="19.58" r="0.050" fill="#b7b7b7"/>
-<circle cx="26.50" cy="19.50" r="0.430" fill="#202945"/>
-<circle cx="27.50" cy="19.50" r="0.460" fill="#202945"/>
-<circle cx="28.50" cy="19.50" r="0.333" fill="#202945"/>
-<circle cx="29.50" cy="19.50" r="0.358" fill="#202945"/>
-<circle cx="30.50" cy="19.50" r="0.382" fill="#202945"/>
+<ellipse cx="26.50" cy="19.50" rx="0.500" ry="0.430" transform="rotate(106.7 26.50 19.50)" fill="#202945"/>
+<ellipse cx="27.50" cy="19.50" rx="0.500" ry="0.460" transform="rotate(105.3 27.50 19.50)" fill="#202945"/>
+<ellipse cx="28.50" cy="19.50" rx="0.406" ry="0.333" transform="rotate(104.0 28.50 19.50)" fill="#202945"/>
+<ellipse cx="29.50" cy="19.50" rx="0.443" ry="0.358" transform="rotate(103.0 29.50 19.50)" fill="#202945"/>
+<ellipse cx="30.50" cy="19.50" rx="0.479" ry="0.382" transform="rotate(102.1 30.50 19.50)" fill="#202945"/>
 <circle cx="31.62" cy="19.69" r="0.050" fill="#b7b7b7"/>
-<circle cx="32.50" cy="19.50" r="0.331" fill="#202945"/>
+<ellipse cx="32.50" cy="19.50" rx="0.426" ry="0.331" transform="rotate(100.6 32.50 19.50)" fill="#202945"/>
 <circle cx="0.33" cy="20.34" r="0.050" fill="#b7b7b7"/>
-<circle cx="1.50" cy="20.50" r="0.363" fill="#202945"/>
-<circle cx="3.50" cy="20.50" r="0.395" fill="#202945"/>
+<ellipse cx="1.50" cy="20.50" rx="0.462" ry="0.363" transform="rotate(255.1 1.50 20.50)" fill="#202945"/>
+<ellipse cx="3.50" cy="20.50" rx="0.490" ry="0.395" transform="rotate(252.9 3.50 20.50)" fill="#202945"/>
 <circle cx="5.47" cy="20.60" r="0.050" fill="#b7b7b7"/>
-<circle cx="6.50" cy="20.50" r="0.430" fill="#202945"/>
-<circle cx="7.50" cy="20.50" r="0.427" fill="#202945"/>
-<circle cx="8.50" cy="20.50" r="0.375" fill="#202945"/>
-<circle cx="10.50" cy="20.50" r="0.385" fill="#202945"/>
+<ellipse cx="6.50" cy="20.50" rx="0.500" ry="0.430" transform="rotate(248.2 6.50 20.50)" fill="#202945"/>
+<ellipse cx="7.50" cy="20.50" rx="0.500" ry="0.427" transform="rotate(246.0 7.50 20.50)" fill="#202945"/>
+<ellipse cx="8.50" cy="20.50" rx="0.435" ry="0.375" transform="rotate(243.4 8.50 20.50)" fill="#202945"/>
+<ellipse cx="10.50" cy="20.50" rx="0.434" ry="0.385" transform="rotate(236.3 10.50 20.50)" fill="#202945"/>
 <circle cx="13.47" cy="20.52" r="0.050" fill="#b7b7b7"/>
 <circle cx="14.52" cy="20.38" r="0.050" fill="#b7b7b7"/>
-<circle cx="15.50" cy="20.50" r="0.425" fill="#202945"/>
-<circle cx="17.50" cy="20.50" r="0.458" fill="#202945"/>
-<circle cx="18.50" cy="20.50" r="0.449" fill="#202945"/>
+<ellipse cx="15.50" cy="20.50" rx="0.456" ry="0.425" transform="rotate(194.0 15.50 20.50)" fill="#202945"/>
+<ellipse cx="17.50" cy="20.50" rx="0.492" ry="0.458" transform="rotate(166.0 17.50 20.50)" fill="#202945"/>
+<ellipse cx="18.50" cy="20.50" rx="0.484" ry="0.449" transform="rotate(153.4 18.50 20.50)" fill="#202945"/>
 <circle cx="19.39" cy="20.35" r="0.050" fill="#b7b7b7"/>
 <circle cx="21.59" cy="20.40" r="0.050" fill="#b7b7b7"/>
-<circle cx="22.50" cy="20.50" r="0.401" fill="#202945"/>
+<ellipse cx="22.50" cy="20.50" rx="0.452" ry="0.401" transform="rotate(123.7 22.50 20.50)" fill="#202945"/>
 <circle cx="25.50" cy="20.50" r="0.500" fill="#202945"/>
-<circle cx="26.50" cy="20.50" r="0.400" fill="#202945"/>
-<circle cx="27.50" cy="20.50" r="0.411" fill="#202945"/>
-<circle cx="28.50" cy="20.50" r="0.335" fill="#202945"/>
-<circle cx="29.50" cy="20.50" r="0.372" fill="#202945"/>
+<ellipse cx="26.50" cy="20.50" rx="0.477" ry="0.400" transform="rotate(111.8 26.50 20.50)" fill="#202945"/>
+<ellipse cx="27.50" cy="20.50" rx="0.496" ry="0.411" transform="rotate(110.0 27.50 20.50)" fill="#202945"/>
+<ellipse cx="28.50" cy="20.50" rx="0.410" ry="0.335" transform="rotate(108.4 28.50 20.50)" fill="#202945"/>
+<ellipse cx="29.50" cy="20.50" rx="0.461" ry="0.372" transform="rotate(107.1 29.50 20.50)" fill="#202945"/>
 <circle cx="30.59" cy="20.44" r="0.050" fill="#b7b7b7"/>
-<circle cx="31.50" cy="20.50" r="0.355" fill="#202945"/>
-<circle cx="32.50" cy="20.50" r="0.349" fill="#202945"/>
-<circle cx="0.50" cy="21.50" r="0.343" fill="#202945"/>
+<ellipse cx="31.50" cy="20.50" rx="0.453" ry="0.355" transform="rotate(104.9 31.50 20.50)" fill="#202945"/>
+<ellipse cx="32.50" cy="20.50" rx="0.450" ry="0.349" transform="rotate(104.0 32.50 20.50)" fill="#202945"/>
+<ellipse cx="0.50" cy="21.50" rx="0.444" ry="0.343" transform="rotate(252.6 0.50 21.50)" fill="#202945"/>
 <circle cx="1.63" cy="21.40" r="0.050" fill="#b7b7b7"/>
-<circle cx="3.50" cy="21.50" r="0.371" fill="#202945"/>
+<ellipse cx="3.50" cy="21.50" rx="0.462" ry="0.371" transform="rotate(249.0 3.50 21.50)" fill="#202945"/>
 <circle cx="4.55" cy="21.41" r="0.050" fill="#b7b7b7"/>
-<circle cx="5.50" cy="21.50" r="0.345" fill="#202945"/>
-<circle cx="7.50" cy="21.50" r="0.467" fill="#202945"/>
+<ellipse cx="5.50" cy="21.50" rx="0.419" ry="0.345" transform="rotate(245.6 5.50 21.50)" fill="#202945"/>
+<ellipse cx="7.50" cy="21.50" rx="0.500" ry="0.467" transform="rotate(240.9 7.50 21.50)" fill="#202945"/>
 <circle cx="8.53" cy="21.31" r="0.050" fill="#b7b7b7"/>
-<circle cx="9.50" cy="21.50" r="0.373" fill="#202945"/>
-<circle cx="10.50" cy="21.50" r="0.407" fill="#202945"/>
-<circle cx="11.50" cy="21.50" r="0.473" fill="#202945"/>
-<circle cx="12.50" cy="21.50" r="0.431" fill="#202945"/>
+<ellipse cx="9.50" cy="21.50" rx="0.430" ry="0.373" transform="rotate(234.5 9.50 21.50)" fill="#202945"/>
+<ellipse cx="10.50" cy="21.50" rx="0.463" ry="0.407" transform="rotate(230.2 10.50 21.50)" fill="#202945"/>
+<ellipse cx="11.50" cy="21.50" rx="0.500" ry="0.473" transform="rotate(225.0 11.50 21.50)" fill="#202945"/>
+<ellipse cx="12.50" cy="21.50" rx="0.480" ry="0.431" transform="rotate(218.7 12.50 21.50)" fill="#202945"/>
 <circle cx="13.61" cy="21.61" r="0.050" fill="#b7b7b7"/>
-<circle cx="15.50" cy="21.50" r="0.448" fill="#202945"/>
-<circle cx="16.50" cy="21.50" r="0.462" fill="#202945"/>
+<ellipse cx="15.50" cy="21.50" rx="0.488" ry="0.448" transform="rotate(191.3 15.50 21.50)" fill="#202945"/>
+<ellipse cx="16.50" cy="21.50" rx="0.500" ry="0.462" transform="rotate(180.0 16.50 21.50)" fill="#202945"/>
 <circle cx="17.59" cy="21.63" r="0.050" fill="#b7b7b7"/>
-<circle cx="21.50" cy="21.50" r="0.437" fill="#202945"/>
-<circle cx="22.50" cy="21.50" r="0.458" fill="#202945"/>
+<ellipse cx="21.50" cy="21.50" rx="0.492" ry="0.437" transform="rotate(135.0 21.50 21.50)" fill="#202945"/>
+<ellipse cx="22.50" cy="21.50" rx="0.500" ry="0.458" transform="rotate(129.8 22.50 21.50)" fill="#202945"/>
 <circle cx="23.63" cy="21.51" r="0.050" fill="#b7b7b7"/>
-<circle cx="24.50" cy="21.50" r="0.401" fill="#202945"/>
-<circle cx="26.50" cy="21.50" r="0.417" fill="#202945"/>
+<ellipse cx="24.50" cy="21.50" rx="0.468" ry="0.401" transform="rotate(122.0 24.50 21.50)" fill="#202945"/>
+<ellipse cx="26.50" cy="21.50" rx="0.499" ry="0.417" transform="rotate(116.6 26.50 21.50)" fill="#202945"/>
 <circle cx="27.56" cy="21.56" r="0.050" fill="#b7b7b7"/>
-<circle cx="28.50" cy="21.50" r="0.365" fill="#202945"/>
-<circle cx="29.50" cy="21.50" r="0.395" fill="#202945"/>
-<circle cx="30.50" cy="21.50" r="0.390" fill="#202945"/>
+<ellipse cx="28.50" cy="21.50" rx="0.448" ry="0.365" transform="rotate(112.6 28.50 21.50)" fill="#202945"/>
+<ellipse cx="29.50" cy="21.50" rx="0.492" ry="0.395" transform="rotate(111.0 29.50 21.50)" fill="#202945"/>
+<ellipse cx="30.50" cy="21.50" rx="0.492" ry="0.390" transform="rotate(109.7 30.50 21.50)" fill="#202945"/>
 <circle cx="31.64" cy="21.40" r="0.050" fill="#b7b7b7"/>
-<circle cx="0.50" cy="22.50" r="0.343" fill="#202945"/>
-<circle cx="2.50" cy="22.50" r="0.367" fill="#202945"/>
-<circle cx="3.50" cy="22.50" r="0.352" fill="#202945"/>
-<circle cx="4.50" cy="22.50" r="0.323" fill="#202945"/>
-<circle cx="5.50" cy="22.50" r="0.329" fill="#202945"/>
-<circle cx="6.50" cy="22.50" r="0.399" fill="#202945"/>
-<circle cx="7.50" cy="22.50" r="0.448" fill="#202945"/>
+<ellipse cx="0.50" cy="22.50" rx="0.447" ry="0.343" transform="rotate(249.4 0.50 22.50)" fill="#202945"/>
+<ellipse cx="2.50" cy="22.50" rx="0.466" ry="0.367" transform="rotate(246.8 2.50 22.50)" fill="#202945"/>
+<ellipse cx="3.50" cy="22.50" rx="0.441" ry="0.352" transform="rotate(245.2 3.50 22.50)" fill="#202945"/>
+<ellipse cx="4.50" cy="22.50" rx="0.399" ry="0.323" transform="rotate(243.4 4.50 22.50)" fill="#202945"/>
+<ellipse cx="5.50" cy="22.50" rx="0.402" ry="0.329" transform="rotate(241.4 5.50 22.50)" fill="#202945"/>
+<ellipse cx="6.50" cy="22.50" rx="0.482" ry="0.399" transform="rotate(239.0 6.50 22.50)" fill="#202945"/>
+<ellipse cx="7.50" cy="22.50" rx="0.500" ry="0.448" transform="rotate(236.3 7.50 22.50)" fill="#202945"/>
 <circle cx="8.48" cy="22.59" r="0.050" fill="#b7b7b7"/>
-<circle cx="10.50" cy="22.50" r="0.387" fill="#202945"/>
-<circle cx="12.50" cy="22.50" r="0.403" fill="#202945"/>
-<circle cx="16.50" cy="22.50" r="0.397" fill="#202945"/>
+<ellipse cx="10.50" cy="22.50" rx="0.445" ry="0.387" transform="rotate(225.0 10.50 22.50)" fill="#202945"/>
+<ellipse cx="12.50" cy="22.50" rx="0.455" ry="0.403" transform="rotate(213.7 12.50 22.50)" fill="#202945"/>
+<ellipse cx="16.50" cy="22.50" rx="0.439" ry="0.397" transform="rotate(180.0 16.50 22.50)" fill="#202945"/>
 <circle cx="17.55" cy="22.31" r="0.050" fill="#b7b7b7"/>
 <circle cx="18.39" cy="22.56" r="0.050" fill="#b7b7b7"/>
 <circle cx="19.32" cy="22.69" r="0.050" fill="#b7b7b7"/>
-<circle cx="20.50" cy="22.50" r="0.415" fill="#202945"/>
+<ellipse cx="20.50" cy="22.50" rx="0.468" ry="0.415" transform="rotate(146.3 20.50 22.50)" fill="#202945"/>
 <circle cx="22.47" cy="22.44" r="0.050" fill="#b7b7b7"/>
 <circle cx="23.43" cy="22.69" r="0.050" fill="#b7b7b7"/>
 <circle cx="27.51" cy="22.59" r="0.050" fill="#b7b7b7"/>
-<circle cx="28.50" cy="22.50" r="0.377" fill="#202945"/>
-<circle cx="29.50" cy="22.50" r="0.359" fill="#202945"/>
+<ellipse cx="28.50" cy="22.50" rx="0.467" ry="0.377" transform="rotate(116.6 28.50 22.50)" fill="#202945"/>
+<ellipse cx="29.50" cy="22.50" rx="0.450" ry="0.359" transform="rotate(114.8 29.50 22.50)" fill="#202945"/>
 <circle cx="30.67" cy="22.46" r="0.050" fill="#b7b7b7"/>
-<circle cx="31.50" cy="22.50" r="0.326" fill="#202945"/>
+<ellipse cx="31.50" cy="22.50" rx="0.420" ry="0.326" transform="rotate(111.8 31.50 22.50)" fill="#202945"/>
 <circle cx="32.36" cy="22.65" r="0.050" fill="#b7b7b7"/>
-<circle cx="0.50" cy="23.50" r="0.334" fill="#202945"/>
-<circle cx="2.50" cy="23.50" r="0.311" fill="#202945"/>
+<ellipse cx="0.50" cy="23.50" rx="0.437" ry="0.334" transform="rotate(246.4 0.50 23.50)" fill="#202945"/>
+<ellipse cx="2.50" cy="23.50" rx="0.397" ry="0.311" transform="rotate(243.4 2.50 23.50)" fill="#202945"/>
 <circle cx="3.64" cy="23.63" r="0.050" fill="#b7b7b7"/>
 <circle cx="4.31" cy="23.62" r="0.050" fill="#b7b7b7"/>
-<circle cx="5.50" cy="23.50" r="0.336" fill="#202945"/>
-<circle cx="7.50" cy="23.50" r="0.435" fill="#202945"/>
-<circle cx="8.50" cy="23.50" r="0.400" fill="#202945"/>
-<circle cx="9.50" cy="23.50" r="0.419" fill="#202945"/>
-<circle cx="13.50" cy="23.50" r="0.415" fill="#202945"/>
-<circle cx="14.50" cy="23.50" r="0.387" fill="#202945"/>
-<circle cx="15.50" cy="23.50" r="0.435" fill="#202945"/>
+<ellipse cx="5.50" cy="23.50" rx="0.413" ry="0.336" transform="rotate(237.5 5.50 23.50)" fill="#202945"/>
+<ellipse cx="7.50" cy="23.50" rx="0.500" ry="0.435" transform="rotate(232.1 7.50 23.50)" fill="#202945"/>
+<ellipse cx="8.50" cy="23.50" rx="0.475" ry="0.400" transform="rotate(228.8 8.50 23.50)" fill="#202945"/>
+<ellipse cx="9.50" cy="23.50" rx="0.493" ry="0.419" transform="rotate(225.0 9.50 23.50)" fill="#202945"/>
+<ellipse cx="13.50" cy="23.50" rx="0.471" ry="0.415" transform="rotate(203.2 13.50 23.50)" fill="#202945"/>
+<ellipse cx="14.50" cy="23.50" rx="0.437" ry="0.387" transform="rotate(195.9 14.50 23.50)" fill="#202945"/>
+<ellipse cx="15.50" cy="23.50" rx="0.489" ry="0.435" transform="rotate(188.1 15.50 23.50)" fill="#202945"/>
 <circle cx="16.62" cy="23.59" r="0.050" fill="#b7b7b7"/>
 <circle cx="17.67" cy="23.31" r="0.050" fill="#b7b7b7"/>
-<circle cx="18.50" cy="23.50" r="0.381" fill="#202945"/>
-<circle cx="19.50" cy="23.50" r="0.398" fill="#202945"/>
-<circle cx="20.50" cy="23.50" r="0.380" fill="#202945"/>
+<ellipse cx="18.50" cy="23.50" rx="0.430" ry="0.381" transform="rotate(164.1 18.50 23.50)" fill="#202945"/>
+<ellipse cx="19.50" cy="23.50" rx="0.452" ry="0.398" transform="rotate(156.8 19.50 23.50)" fill="#202945"/>
+<ellipse cx="20.50" cy="23.50" rx="0.435" ry="0.380" transform="rotate(150.3 20.50 23.50)" fill="#202945"/>
 <circle cx="21.44" cy="23.59" r="0.050" fill="#b7b7b7"/>
-<circle cx="22.50" cy="23.50" r="0.394" fill="#202945"/>
+<ellipse cx="22.50" cy="23.50" rx="0.459" ry="0.394" transform="rotate(139.4 22.50 23.50)" fill="#202945"/>
 <circle cx="23.50" cy="23.46" r="0.050" fill="#b7b7b7"/>
-<circle cx="24.50" cy="23.50" r="0.415" fill="#202945"/>
-<circle cx="27.50" cy="23.50" r="0.406" fill="#202945"/>
-<circle cx="29.50" cy="23.50" r="0.422" fill="#202945"/>
-<circle cx="30.50" cy="23.50" r="0.320" fill="#202945"/>
-<circle cx="31.50" cy="23.50" r="0.347" fill="#202945"/>
-<circle cx="32.50" cy="23.50" r="0.329" fill="#202945"/>
-<circle cx="0.50" cy="24.50" r="0.409" fill="#202945"/>
-<circle cx="1.50" cy="24.50" r="0.321" fill="#202945"/>
-<circle cx="3.50" cy="24.50" r="0.304" fill="#202945"/>
+<ellipse cx="24.50" cy="23.50" rx="0.493" ry="0.415" transform="rotate(131.2 24.50 23.50)" fill="#202945"/>
+<ellipse cx="27.50" cy="23.50" rx="0.500" ry="0.406" transform="rotate(122.5 27.50 23.50)" fill="#202945"/>
+<ellipse cx="29.50" cy="23.50" rx="0.500" ry="0.422" transform="rotate(118.3 29.50 23.50)" fill="#202945"/>
+<ellipse cx="30.50" cy="23.50" rx="0.409" ry="0.320" transform="rotate(116.6 30.50 23.50)" fill="#202945"/>
+<ellipse cx="31.50" cy="23.50" rx="0.448" ry="0.347" transform="rotate(115.0 31.50 23.50)" fill="#202945"/>
+<ellipse cx="32.50" cy="23.50" rx="0.431" ry="0.329" transform="rotate(113.6 32.50 23.50)" fill="#202945"/>
+<ellipse cx="0.50" cy="24.50" rx="0.500" ry="0.409" transform="rotate(243.4 0.50 24.50)" fill="#202945"/>
+<ellipse cx="1.50" cy="24.50" rx="0.417" ry="0.321" transform="rotate(241.9 1.50 24.50)" fill="#202945"/>
+<ellipse cx="3.50" cy="24.50" rx="0.386" ry="0.304" transform="rotate(238.4 3.50 24.50)" fill="#202945"/>
 <circle cx="5.57" cy="24.53" r="0.050" fill="#b7b7b7"/>
-<circle cx="6.50" cy="24.50" r="0.391" fill="#202945"/>
-<circle cx="7.50" cy="24.50" r="0.356" fill="#202945"/>
-<circle cx="9.50" cy="24.50" r="0.404" fill="#202945"/>
-<circle cx="10.50" cy="24.50" r="0.443" fill="#202945"/>
-<circle cx="11.50" cy="24.50" r="0.399" fill="#202945"/>
-<circle cx="13.50" cy="24.50" r="0.457" fill="#202945"/>
-<circle cx="14.50" cy="24.50" r="0.384" fill="#202945"/>
-<circle cx="15.50" cy="24.50" r="0.422" fill="#202945"/>
+<ellipse cx="6.50" cy="24.50" rx="0.480" ry="0.391" transform="rotate(231.3 6.50 24.50)" fill="#202945"/>
+<ellipse cx="7.50" cy="24.50" rx="0.432" ry="0.356" transform="rotate(228.4 7.50 24.50)" fill="#202945"/>
+<ellipse cx="9.50" cy="24.50" rx="0.480" ry="0.404" transform="rotate(221.2 9.50 24.50)" fill="#202945"/>
+<ellipse cx="10.50" cy="24.50" rx="0.500" ry="0.443" transform="rotate(216.9 10.50 24.50)" fill="#202945"/>
+<ellipse cx="11.50" cy="24.50" rx="0.466" ry="0.399" transform="rotate(212.0 11.50 24.50)" fill="#202945"/>
+<ellipse cx="13.50" cy="24.50" rx="0.500" ry="0.457" transform="rotate(200.6 13.50 24.50)" fill="#202945"/>
+<ellipse cx="14.50" cy="24.50" rx="0.441" ry="0.384" transform="rotate(194.0 14.50 24.50)" fill="#202945"/>
+<ellipse cx="15.50" cy="24.50" rx="0.482" ry="0.422" transform="rotate(187.1 15.50 24.50)" fill="#202945"/>
 <circle cx="16.69" cy="24.67" r="0.050" fill="#b7b7b7"/>
-<circle cx="17.50" cy="24.50" r="0.424" fill="#202945"/>
-<circle cx="19.50" cy="24.50" r="0.428" fill="#202945"/>
-<circle cx="20.50" cy="24.50" r="0.392" fill="#202945"/>
-<circle cx="21.50" cy="24.50" r="0.457" fill="#202945"/>
-<circle cx="22.50" cy="24.50" r="0.483" fill="#202945"/>
-<circle cx="23.50" cy="24.50" r="0.417" fill="#202945"/>
+<ellipse cx="17.50" cy="24.50" rx="0.484" ry="0.424" transform="rotate(172.9 17.50 24.50)" fill="#202945"/>
+<ellipse cx="19.50" cy="24.50" rx="0.493" ry="0.428" transform="rotate(159.4 19.50 24.50)" fill="#202945"/>
+<ellipse cx="20.50" cy="24.50" rx="0.454" ry="0.392" transform="rotate(153.4 20.50 24.50)" fill="#202945"/>
+<ellipse cx="21.50" cy="24.50" rx="0.500" ry="0.457" transform="rotate(148.0 21.50 24.50)" fill="#202945"/>
+<ellipse cx="22.50" cy="24.50" rx="0.500" ry="0.483" transform="rotate(143.1 22.50 24.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="24.50" rx="0.495" ry="0.417" transform="rotate(138.8 23.50 24.50)" fill="#202945"/>
 <circle cx="30.63" cy="24.53" r="0.050" fill="#b7b7b7"/>
 <circle cx="1.61" cy="25.54" r="0.050" fill="#b7b7b7"/>
 <circle cx="3.36" cy="25.32" r="0.050" fill="#b7b7b7"/>
 <circle cx="4.67" cy="25.68" r="0.050" fill="#b7b7b7"/>
-<circle cx="8.50" cy="25.50" r="0.400" fill="#202945"/>
+<ellipse cx="8.50" cy="25.50" rx="0.485" ry="0.400" transform="rotate(221.6 8.50 25.50)" fill="#202945"/>
 <circle cx="10.52" cy="25.47" r="0.050" fill="#b7b7b7"/>
 <circle cx="11.50" cy="25.50" r="0.500" fill="#202945"/>
 <circle cx="12.37" cy="25.56" r="0.050" fill="#b7b7b7"/>
 <circle cx="13.34" cy="25.50" r="0.050" fill="#b7b7b7"/>
-<circle cx="14.50" cy="25.50" r="0.432" fill="#202945"/>
-<circle cx="16.50" cy="25.50" r="0.431" fill="#202945"/>
+<ellipse cx="14.50" cy="25.50" rx="0.500" ry="0.432" transform="rotate(192.5 14.50 25.50)" fill="#202945"/>
+<ellipse cx="16.50" cy="25.50" rx="0.499" ry="0.431" transform="rotate(180.0 16.50 25.50)" fill="#202945"/>
 <circle cx="17.41" cy="25.47" r="0.050" fill="#b7b7b7"/>
-<circle cx="19.50" cy="25.50" r="0.450" fill="#202945"/>
-<circle cx="21.50" cy="25.50" r="0.466" fill="#202945"/>
-<circle cx="29.50" cy="25.50" r="0.313" fill="#202945"/>
-<circle cx="30.50" cy="25.50" r="0.354" fill="#202945"/>
-<circle cx="31.50" cy="25.50" r="0.362" fill="#202945"/>
-<circle cx="32.50" cy="25.50" r="0.344" fill="#202945"/>
+<ellipse cx="19.50" cy="25.50" rx="0.500" ry="0.450" transform="rotate(161.6 19.50 25.50)" fill="#202945"/>
+<ellipse cx="21.50" cy="25.50" rx="0.500" ry="0.466" transform="rotate(150.9 21.50 25.50)" fill="#202945"/>
+<ellipse cx="29.50" cy="25.50" rx="0.401" ry="0.313" transform="rotate(124.7 29.50 25.50)" fill="#202945"/>
+<ellipse cx="30.50" cy="25.50" rx="0.458" ry="0.354" transform="rotate(122.7 30.50 25.50)" fill="#202945"/>
+<ellipse cx="31.50" cy="25.50" rx="0.474" ry="0.362" transform="rotate(121.0 31.50 25.50)" fill="#202945"/>
+<ellipse cx="32.50" cy="25.50" rx="0.455" ry="0.344" transform="rotate(119.4 32.50 25.50)" fill="#202945"/>
 <circle cx="8.56" cy="26.67" r="0.050" fill="#b7b7b7"/>
 <circle cx="11.50" cy="26.50" r="0.500" fill="#202945"/>
-<circle cx="13.50" cy="26.50" r="0.473" fill="#202945"/>
-<circle cx="14.50" cy="26.50" r="0.451" fill="#202945"/>
-<circle cx="15.50" cy="26.50" r="0.459" fill="#202945"/>
+<ellipse cx="13.50" cy="26.50" rx="0.500" ry="0.473" transform="rotate(196.7 13.50 26.50)" fill="#202945"/>
+<ellipse cx="14.50" cy="26.50" rx="0.500" ry="0.451" transform="rotate(191.3 14.50 26.50)" fill="#202945"/>
+<ellipse cx="15.50" cy="26.50" rx="0.500" ry="0.459" transform="rotate(185.7 15.50 26.50)" fill="#202945"/>
 <circle cx="16.31" cy="26.51" r="0.050" fill="#b7b7b7"/>
-<circle cx="18.50" cy="26.50" r="0.458" fill="#202945"/>
-<circle cx="22.50" cy="26.50" r="0.400" fill="#202945"/>
-<circle cx="23.50" cy="26.50" r="0.351" fill="#202945"/>
-<circle cx="30.50" cy="26.50" r="0.309" fill="#202945"/>
-<circle cx="31.50" cy="26.50" r="0.397" fill="#202945"/>
+<ellipse cx="18.50" cy="26.50" rx="0.500" ry="0.458" transform="rotate(168.7 18.50 26.50)" fill="#202945"/>
+<ellipse cx="22.50" cy="26.50" rx="0.482" ry="0.400" transform="rotate(149.0 22.50 26.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="26.50" rx="0.426" ry="0.351" transform="rotate(145.0 23.50 26.50)" fill="#202945"/>
+<ellipse cx="30.50" cy="26.50" rx="0.403" ry="0.309" transform="rotate(125.5 30.50 26.50)" fill="#202945"/>
+<ellipse cx="31.50" cy="26.50" rx="0.500" ry="0.397" transform="rotate(123.7 31.50 26.50)" fill="#202945"/>
 <circle cx="7.48" cy="27.60" r="0.050" fill="#b7b7b7"/>
-<circle cx="8.50" cy="27.50" r="0.355" fill="#202945"/>
-<circle cx="13.50" cy="27.50" r="0.383" fill="#202945"/>
+<ellipse cx="8.50" cy="27.50" rx="0.440" ry="0.355" transform="rotate(216.0 8.50 27.50)" fill="#202945"/>
+<ellipse cx="13.50" cy="27.50" rx="0.460" ry="0.383" transform="rotate(195.3 13.50 27.50)" fill="#202945"/>
 <circle cx="14.50" cy="27.50" r="0.500" fill="#202945"/>
 <circle cx="18.65" cy="27.61" r="0.050" fill="#b7b7b7"/>
-<circle cx="19.50" cy="27.50" r="0.428" fill="#202945"/>
+<ellipse cx="19.50" cy="27.50" rx="0.500" ry="0.428" transform="rotate(164.7 19.50 27.50)" fill="#202945"/>
 <circle cx="20.31" cy="27.30" r="0.050" fill="#b7b7b7"/>
-<circle cx="21.50" cy="27.50" r="0.352" fill="#202945"/>
-<circle cx="22.50" cy="27.50" r="0.393" fill="#202945"/>
-<circle cx="30.50" cy="27.50" r="0.410" fill="#202945"/>
-<circle cx="31.50" cy="27.50" r="0.307" fill="#202945"/>
+<ellipse cx="21.50" cy="27.50" rx="0.427" ry="0.352" transform="rotate(155.6 21.50 27.50)" fill="#202945"/>
+<ellipse cx="22.50" cy="27.50" rx="0.480" ry="0.393" transform="rotate(151.4 22.50 27.50)" fill="#202945"/>
+<ellipse cx="30.50" cy="27.50" rx="0.500" ry="0.410" transform="rotate(128.2 30.50 27.50)" fill="#202945"/>
+<ellipse cx="31.50" cy="27.50" rx="0.408" ry="0.307" transform="rotate(126.3 31.50 27.50)" fill="#202945"/>
 <circle cx="7.49" cy="28.63" r="0.050" fill="#b7b7b7"/>
 <circle cx="8.58" cy="28.43" r="0.050" fill="#b7b7b7"/>
-<circle cx="9.50" cy="28.50" r="0.316" fill="#202945"/>
-<circle cx="10.50" cy="28.50" r="0.359" fill="#202945"/>
-<circle cx="12.50" cy="28.50" r="0.328" fill="#202945"/>
-<circle cx="13.50" cy="28.50" r="0.377" fill="#202945"/>
-<circle cx="14.50" cy="28.50" r="0.360" fill="#202945"/>
+<ellipse cx="9.50" cy="28.50" rx="0.393" ry="0.316" transform="rotate(210.3 9.50 28.50)" fill="#202945"/>
+<ellipse cx="10.50" cy="28.50" rx="0.444" ry="0.359" transform="rotate(206.6 10.50 28.50)" fill="#202945"/>
+<ellipse cx="12.50" cy="28.50" rx="0.401" ry="0.328" transform="rotate(198.4 12.50 28.50)" fill="#202945"/>
+<ellipse cx="13.50" cy="28.50" rx="0.460" ry="0.377" transform="rotate(194.0 13.50 28.50)" fill="#202945"/>
+<ellipse cx="14.50" cy="28.50" rx="0.437" ry="0.360" transform="rotate(189.5 14.50 28.50)" fill="#202945"/>
 <circle cx="15.38" cy="28.34" r="0.050" fill="#b7b7b7"/>
-<circle cx="16.50" cy="28.50" r="0.379" fill="#202945"/>
+<ellipse cx="16.50" cy="28.50" rx="0.459" ry="0.379" transform="rotate(180.0 16.50 28.50)" fill="#202945"/>
 <circle cx="17.67" cy="28.64" r="0.050" fill="#b7b7b7"/>
 <circle cx="19.66" cy="28.69" r="0.050" fill="#b7b7b7"/>
-<circle cx="21.50" cy="28.50" r="0.345" fill="#202945"/>
-<circle cx="22.50" cy="28.50" r="0.376" fill="#202945"/>
+<ellipse cx="21.50" cy="28.50" rx="0.425" ry="0.345" transform="rotate(157.4 21.50 28.50)" fill="#202945"/>
+<ellipse cx="22.50" cy="28.50" rx="0.465" ry="0.376" transform="rotate(153.4 22.50 28.50)" fill="#202945"/>
 <circle cx="30.32" cy="28.35" r="0.050" fill="#b7b7b7"/>
-<circle cx="31.50" cy="28.50" r="0.284" fill="#202945"/>
-<circle cx="32.50" cy="28.50" r="0.310" fill="#202945"/>
-<circle cx="9.50" cy="29.50" r="0.370" fill="#202945"/>
-<circle cx="11.50" cy="29.50" r="0.317" fill="#202945"/>
-<circle cx="12.50" cy="29.50" r="0.364" fill="#202945"/>
-<circle cx="15.50" cy="29.50" r="0.404" fill="#202945"/>
-<circle cx="16.50" cy="29.50" r="0.351" fill="#202945"/>
-<circle cx="17.50" cy="29.50" r="0.372" fill="#202945"/>
+<ellipse cx="31.50" cy="28.50" rx="0.380" ry="0.284" transform="rotate(128.7 31.50 28.50)" fill="#202945"/>
+<ellipse cx="32.50" cy="28.50" rx="0.419" ry="0.310" transform="rotate(126.9 32.50 28.50)" fill="#202945"/>
+<ellipse cx="9.50" cy="29.50" rx="0.466" ry="0.370" transform="rotate(208.3 9.50 29.50)" fill="#202945"/>
+<ellipse cx="11.50" cy="29.50" rx="0.395" ry="0.317" transform="rotate(201.0 11.50 29.50)" fill="#202945"/>
+<ellipse cx="12.50" cy="29.50" rx="0.451" ry="0.364" transform="rotate(197.1 12.50 29.50)" fill="#202945"/>
+<ellipse cx="15.50" cy="29.50" rx="0.497" ry="0.404" transform="rotate(184.4 15.50 29.50)" fill="#202945"/>
+<ellipse cx="16.50" cy="29.50" rx="0.432" ry="0.351" transform="rotate(180.0 16.50 29.50)" fill="#202945"/>
+<ellipse cx="17.50" cy="29.50" rx="0.458" ry="0.372" transform="rotate(175.6 17.50 29.50)" fill="#202945"/>
 <circle cx="18.52" cy="29.63" r="0.050" fill="#b7b7b7"/>
-<circle cx="19.50" cy="29.50" r="0.336" fill="#202945"/>
+<ellipse cx="19.50" cy="29.50" rx="0.415" ry="0.336" transform="rotate(167.0 19.50 29.50)" fill="#202945"/>
 <circle cx="20.58" cy="29.40" r="0.050" fill="#b7b7b7"/>
-<circle cx="21.50" cy="29.50" r="0.335" fill="#202945"/>
-<circle cx="23.50" cy="29.50" r="0.464" fill="#202945"/>
+<ellipse cx="21.50" cy="29.50" rx="0.418" ry="0.335" transform="rotate(159.0 21.50 29.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="29.50" rx="0.500" ry="0.464" transform="rotate(151.7 23.50 29.50)" fill="#202945"/>
 <circle cx="24.66" cy="29.52" r="0.050" fill="#b7b7b7"/>
-<circle cx="25.50" cy="29.50" r="0.301" fill="#202945"/>
-<circle cx="27.50" cy="29.50" r="0.339" fill="#202945"/>
-<circle cx="28.50" cy="29.50" r="0.335" fill="#202945"/>
-<circle cx="29.50" cy="29.50" r="0.337" fill="#202945"/>
-<circle cx="31.50" cy="29.50" r="0.306" fill="#202945"/>
+<ellipse cx="25.50" cy="29.50" rx="0.385" ry="0.301" transform="rotate(145.3 25.50 29.50)" fill="#202945"/>
+<ellipse cx="27.50" cy="29.50" rx="0.441" ry="0.339" transform="rotate(139.8 27.50 29.50)" fill="#202945"/>
+<ellipse cx="28.50" cy="29.50" rx="0.439" ry="0.335" transform="rotate(137.3 28.50 29.50)" fill="#202945"/>
+<ellipse cx="29.50" cy="29.50" rx="0.446" ry="0.337" transform="rotate(135.0 29.50 29.50)" fill="#202945"/>
+<ellipse cx="31.50" cy="29.50" rx="0.414" ry="0.306" transform="rotate(130.9 31.50 29.50)" fill="#202945"/>
 <circle cx="8.48" cy="30.36" r="0.050" fill="#b7b7b7"/>
-<circle cx="9.50" cy="30.50" r="0.326" fill="#202945"/>
-<circle cx="10.50" cy="30.50" r="0.356" fill="#202945"/>
-<circle cx="13.50" cy="30.50" r="0.366" fill="#202945"/>
-<circle cx="15.50" cy="30.50" r="0.342" fill="#202945"/>
-<circle cx="16.50" cy="30.50" r="0.382" fill="#202945"/>
+<ellipse cx="9.50" cy="30.50" rx="0.416" ry="0.326" transform="rotate(206.6 9.50 30.50)" fill="#202945"/>
+<ellipse cx="10.50" cy="30.50" rx="0.452" ry="0.356" transform="rotate(203.2 10.50 30.50)" fill="#202945"/>
+<ellipse cx="13.50" cy="30.50" rx="0.459" ry="0.366" transform="rotate(192.1 13.50 30.50)" fill="#202945"/>
+<ellipse cx="15.50" cy="30.50" rx="0.426" ry="0.342" transform="rotate(184.1 15.50 30.50)" fill="#202945"/>
+<ellipse cx="16.50" cy="30.50" rx="0.476" ry="0.382" transform="rotate(180.0 16.50 30.50)" fill="#202945"/>
 <circle cx="17.47" cy="30.44" r="0.050" fill="#b7b7b7"/>
-<circle cx="20.50" cy="30.50" r="0.414" fill="#202945"/>
-<circle cx="21.50" cy="30.50" r="0.437" fill="#202945"/>
-<circle cx="23.50" cy="30.50" r="0.309" fill="#202945"/>
-<circle cx="24.50" cy="30.50" r="0.321" fill="#202945"/>
+<ellipse cx="20.50" cy="30.50" rx="0.500" ry="0.414" transform="rotate(164.1 20.50 30.50)" fill="#202945"/>
+<ellipse cx="21.50" cy="30.50" rx="0.500" ry="0.437" transform="rotate(160.3 21.50 30.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="30.50" rx="0.394" ry="0.309" transform="rotate(153.4 23.50 30.50)" fill="#202945"/>
+<ellipse cx="24.50" cy="30.50" rx="0.412" ry="0.321" transform="rotate(150.3 24.50 30.50)" fill="#202945"/>
 <circle cx="25.59" cy="30.31" r="0.050" fill="#b7b7b7"/>
 <circle cx="27.47" cy="30.32" r="0.050" fill="#b7b7b7"/>
-<circle cx="28.50" cy="30.50" r="0.302" fill="#202945"/>
-<circle cx="29.50" cy="30.50" r="0.304" fill="#202945"/>
+<ellipse cx="28.50" cy="30.50" rx="0.401" ry="0.302" transform="rotate(139.4 28.50 30.50)" fill="#202945"/>
+<ellipse cx="29.50" cy="30.50" rx="0.406" ry="0.304" transform="rotate(137.1 29.50 30.50)" fill="#202945"/>
 <circle cx="30.61" cy="30.58" r="0.050" fill="#b7b7b7"/>
-<circle cx="31.50" cy="30.50" r="0.292" fill="#202945"/>
-<circle cx="32.50" cy="30.50" r="0.378" fill="#202945"/>
+<ellipse cx="31.50" cy="30.50" rx="0.398" ry="0.292" transform="rotate(133.0 31.50 30.50)" fill="#202945"/>
+<ellipse cx="32.50" cy="30.50" rx="0.500" ry="0.378" transform="rotate(131.2 32.50 30.50)" fill="#202945"/>
 <circle cx="7.32" cy="31.44" r="0.050" fill="#b7b7b7"/>
-<circle cx="9.50" cy="31.50" r="0.352" fill="#202945"/>
-<circle cx="12.50" cy="31.50" r="0.366" fill="#202945"/>
-<circle cx="13.50" cy="31.50" r="0.336" fill="#202945"/>
-<circle cx="14.50" cy="31.50" r="0.306" fill="#202945"/>
+<ellipse cx="9.50" cy="31.50" rx="0.455" ry="0.352" transform="rotate(205.0 9.50 31.50)" fill="#202945"/>
+<ellipse cx="12.50" cy="31.50" rx="0.466" ry="0.366" transform="rotate(194.9 12.50 31.50)" fill="#202945"/>
+<ellipse cx="13.50" cy="31.50" rx="0.427" ry="0.336" transform="rotate(191.3 13.50 31.50)" fill="#202945"/>
+<ellipse cx="14.50" cy="31.50" rx="0.387" ry="0.306" transform="rotate(187.6 14.50 31.50)" fill="#202945"/>
 <circle cx="16.46" cy="31.44" r="0.050" fill="#b7b7b7"/>
 <circle cx="17.44" cy="31.37" r="0.050" fill="#b7b7b7"/>
-<circle cx="20.50" cy="31.50" r="0.301" fill="#202945"/>
-<circle cx="25.50" cy="31.50" r="0.304" fill="#202945"/>
+<ellipse cx="20.50" cy="31.50" rx="0.384" ry="0.301" transform="rotate(165.1 20.50 31.50)" fill="#202945"/>
+<ellipse cx="25.50" cy="31.50" rx="0.398" ry="0.304" transform="rotate(149.0 25.50 31.50)" fill="#202945"/>
 <circle cx="26.64" cy="31.62" r="0.050" fill="#b7b7b7"/>
 <circle cx="28.56" cy="31.34" r="0.050" fill="#b7b7b7"/>
-<circle cx="29.50" cy="31.50" r="0.368" fill="#202945"/>
+<ellipse cx="29.50" cy="31.50" rx="0.497" ry="0.368" transform="rotate(139.1 29.50 31.50)" fill="#202945"/>
 <circle cx="30.68" cy="31.49" r="0.050" fill="#b7b7b7"/>
 <circle cx="31.66" cy="31.55" r="0.050" fill="#b7b7b7"/>
 <circle cx="32.31" cy="31.45" r="0.050" fill="#b7b7b7"/>
 <circle cx="7.52" cy="32.36" r="0.050" fill="#b7b7b7"/>
 <circle cx="8.67" cy="32.56" r="0.050" fill="#b7b7b7"/>
 <circle cx="9.65" cy="32.55" r="0.050" fill="#b7b7b7"/>
-<circle cx="10.50" cy="32.50" r="0.362" fill="#202945"/>
-<circle cx="11.50" cy="32.50" r="0.329" fill="#202945"/>
-<circle cx="12.50" cy="32.50" r="0.363" fill="#202945"/>
+<ellipse cx="10.50" cy="32.50" rx="0.472" ry="0.362" transform="rotate(200.6 10.50 32.50)" fill="#202945"/>
+<ellipse cx="11.50" cy="32.50" rx="0.426" ry="0.329" transform="rotate(197.4 11.50 32.50)" fill="#202945"/>
+<ellipse cx="12.50" cy="32.50" rx="0.469" ry="0.363" transform="rotate(194.0 12.50 32.50)" fill="#202945"/>
 <circle cx="14.40" cy="32.41" r="0.050" fill="#b7b7b7"/>
 <circle cx="15.40" cy="32.39" r="0.050" fill="#b7b7b7"/>
-<circle cx="17.50" cy="32.50" r="0.333" fill="#202945"/>
-<circle cx="18.50" cy="32.50" r="0.366" fill="#202945"/>
-<circle cx="19.50" cy="32.50" r="0.305" fill="#202945"/>
-<circle cx="20.50" cy="32.50" r="0.338" fill="#202945"/>
-<circle cx="21.50" cy="32.50" r="0.292" fill="#202945"/>
-<circle cx="23.50" cy="32.50" r="0.293" fill="#202945"/>
-<circle cx="24.50" cy="32.50" r="0.378" fill="#202945"/>
+<ellipse cx="17.50" cy="32.50" rx="0.428" ry="0.333" transform="rotate(176.4 17.50 32.50)" fill="#202945"/>
+<ellipse cx="18.50" cy="32.50" rx="0.470" ry="0.366" transform="rotate(172.9 18.50 32.50)" fill="#202945"/>
+<ellipse cx="19.50" cy="32.50" rx="0.393" ry="0.305" transform="rotate(169.4 19.50 32.50)" fill="#202945"/>
+<ellipse cx="20.50" cy="32.50" rx="0.436" ry="0.338" transform="rotate(166.0 20.50 32.50)" fill="#202945"/>
+<ellipse cx="21.50" cy="32.50" rx="0.378" ry="0.292" transform="rotate(162.6 21.50 32.50)" fill="#202945"/>
+<ellipse cx="23.50" cy="32.50" rx="0.384" ry="0.293" transform="rotate(156.4 23.50 32.50)" fill="#202945"/>
+<ellipse cx="24.50" cy="32.50" rx="0.497" ry="0.378" transform="rotate(153.4 24.50 32.50)" fill="#202945"/>
 <circle cx="27.63" cy="32.50" r="0.050" fill="#b7b7b7"/>
 <circle cx="28.61" cy="32.34" r="0.050" fill="#b7b7b7"/>
-<circle cx="30.50" cy="32.50" r="0.374" fill="#202945"/>
-<circle cx="31.50" cy="32.50" r="0.361" fill="#202945"/>
+<ellipse cx="30.50" cy="32.50" rx="0.500" ry="0.374" transform="rotate(138.8 30.50 32.50)" fill="#202945"/>
+<ellipse cx="31.50" cy="32.50" rx="0.500" ry="0.361" transform="rotate(136.8 31.50 32.50)" fill="#202945"/>
 <circle cx="3.5" cy="3.5" r="3" fill="none" stroke="#202945" stroke-width="1"/>
 <circle cx="3.5" cy="3.5" r="1.5" fill="#202945"/>
 <circle cx="29.5" cy="3.5" r="3" fill="none" stroke="#202945" stroke-width="1"/>

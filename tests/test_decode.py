@@ -23,11 +23,13 @@ URL_VERSIONS = {
 }
 URLS = list(URL_VERSIONS)
 
-RADIAL = DiffractionStyle(falloff="radial")
+# The pre-Wilson look: radial falloff and round spots.
+RADIAL = DiffractionStyle(falloff="radial", streak=0.0)
 
 # SHA-256 of build("https://dials.github.io", seed=0).svg with the Wilson
-# falloff at B = 20 Å², recorded when it became the default.
-SEED_0_SHA256 = "f515d237e08b93eec64f19036d862ae88d32b3a5bc5e2d54333cf361459c4f22"
+# falloff at B = 20 Å² and tangential streaks, recorded when the streaks
+# were added.
+SEED_0_SHA256 = "cbc7321158af267d6de416ec8453200d380db717e47205a2cc7389bfb2ed3244"
 
 # The same render with falloff="radial", recorded at commit 42969c6 when
 # the ice rings were added; the spot jitter and speckle still match the
