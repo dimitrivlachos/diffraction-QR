@@ -5,3 +5,11 @@ dependencies:
   - python=3.12
   - qrcode
   - ruff
+  # Decode harness: rasterise the SVG, blur it, decode it.
+  - cairosvg
+  - numpy
+  - pillow
+  - pytest
+  - scipy
+  # The 3.x conda-forge builds ship only the C++ library, not the bindings.
+  - zxing-cpp=2.3
