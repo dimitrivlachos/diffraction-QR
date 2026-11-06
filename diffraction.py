@@ -25,6 +25,19 @@ safe and everything outside it is free for styling. Error correction
 level H tolerates 30% codeword loss, which absorbs the occasional
 sampling error from small spots or print blur.
 
+Ice rings are placed by a virtual experiment rather than by eye. The
+symbol's corner modules sit at the corners of a detector of known
+half-diagonal at a known distance, so each module has a scattering
+angle 2θ and, through Bragg's law at wavelength λ, a resolution d. The
+rings are the allowed reflections of hexagonal ice Ih, generated from
+its unit cell and space group exactly as DIALS does when masking them,
+down to the resolution at the symbol's corners. They are drawn pale and
+beneath the spots, clipped away from the quiet zone and from the finder
+and alignment squares, whose light gaps must stay white. Dark spots that
+sit on a ring grow a little, as reflections overlapping a ring do on a
+real image; light modules are never darkened beyond the ring's pale
+tint, so the decoder still reads them as light.
+
 The faint speckle drawn in light modules must stay well clear of the
 decoder's binarisation threshold, so it is kept both tiny and pale. No
 decode check is performed here; ``margin.py`` measures how much blur a
@@ -76,6 +89,31 @@ FALLOFF_EXPONENT = 1.5
 # centre.
 SPECKLE_SCATTER = 0.2
 
+# Wavelength of the virtual beam, in Å; 0.9763 Å is 12.7 keV, a common MX
+# energy at Diamond. A longer wavelength pushes every ring outwards.
+WAVELENGTH_A = 0.9763
+
+# Sample-to-detector distance of the virtual experiment, in mm; chosen so
+# the 1.95 Å ice ring lands near the corners at WAVELENGTH_A.
+DETECTOR_DISTANCE_MM = 380.0
+
+# Half-diagonal of the virtual detector, in mm, mapped onto the symbol's
+# corner modules: an Eiger2 XE 16M, 4148 x 4362 pixels of 75 µm.
+DETECTOR_HALF_DIAGONAL_MM = 225.7
+
+# Hexagonal ice Ih cell edges in Å, space group P6₃/mmc (194); the values
+# DIALS masks ice rings with (dials.util.masking, ice_rings.unit_cell).
+ICE_CELL_A = 4.498
+ICE_CELL_C = 7.338
+
+# Fractional growth of a dark spot's diameter at the centre of an ice
+# ring, tapering to none at the ring's edge.
+ICE_SPOT_BOOST = 0.25
+
+# Diameter, in module pitches, beyond which the ice boost stops growing a
+# spot, so spots on a ring do not merge with their neighbours.
+ICE_SPOT_CAP = 1.0
+
 # URL encoded when none is given on the command line.
 DEFAULT_URL = "https://dials.github.io"
 
@@ -88,8 +126,9 @@ MIN_PRINT_MODULE_MM = 0.4
 class DiffractionStyle:
     """Appearance of the rendered code.
 
-    Diameters are in units of the module pitch; probabilities are per
-    light module.
+    Diameters and widths are in units of the module pitch; probabilities
+    are per light module. The wavelength is in Å and detector lengths are
+    in mm.
     """
 
     spot_colour: str = "#202945"
@@ -101,6 +140,12 @@ class DiffractionStyle:
     speckle_colour: str = "#b7b7b7"
     speckle_diameter: float = 0.10
     speckle_probability: float = 0.35
+    ice_rings: bool = True
+    ice_ring_colour: str = "#e8ebf1"
+    ice_ring_width: float = 0.8
+    wavelength_a: float = WAVELENGTH_A
+    detector_distance_mm: float = DETECTOR_DISTANCE_MM
+    detector_half_diagonal_mm: float = DETECTOR_HALF_DIAGONAL_MM
 
 
 class StyledQr(NamedTuple):
@@ -208,11 +253,91 @@ class CodeGrid:
         """Module index of the symbol centre, which plays the beam centre."""
         return (self.size - 1) / 2.0
 
+    @property
+    def corner_distance(self) -> float:
+        """Distance, in modules, from the centre to a corner module's centre."""
+        return math.hypot(self.centre, self.centre)
+
     def radius(self, x: float, y: float) -> float:
         """Return the distance of module (x, y) from the centre, normalised
         so the corner modules sit at 1."""
-        corner_distance = math.hypot(self.centre, self.centre)
-        return math.hypot(x - self.centre, y - self.centre) / corner_distance
+        return math.hypot(x - self.centre, y - self.centre) / self.corner_distance
+
+
+def resolution(r: float, style: DiffractionStyle) -> float:
+    """Return the resolution d, in Å, at normalised radius ``r``.
+
+    The radius maps linearly onto the detector, r = 1 at its corner, and
+    Bragg's law gives d = λ / (2 sin θ) with 2θ = atan(r_mm / D).
+    """
+    if r == 0:
+        return math.inf
+    two_theta = math.atan(
+        r * style.detector_half_diagonal_mm / style.detector_distance_mm
+    )
+    return style.wavelength_a / (2.0 * math.sin(two_theta / 2.0))
+
+
+def ring_radius(d: float, style: DiffractionStyle) -> float | None:
+    """Return the normalised radius of resolution ``d`` in Å, the inverse of
+    ``resolution``.
+
+    Returns None when 2θ would reach 90°, which a flat detector facing the
+    beam cannot record; that includes every d below λ/2, where Bragg's law
+    has no solution.
+    """
+    sin_theta = style.wavelength_a / (2.0 * d)
+    if sin_theta >= math.sqrt(0.5):
+        return None
+    two_theta = 2.0 * math.asin(sin_theta)
+    return (
+        style.detector_distance_mm
+        * math.tan(two_theta)
+        / style.detector_half_diagonal_mm
+    )
+
+
+def ice_d_spacings(d_min: float) -> list[float]:
+    """Return the distinct d-spacings of ice Ih down to ``d_min``, in Å.
+
+    Enumerates every reflection of the hexagonal cell, where
+    1/d² = 4(h² + hk + k²)/(3a²) + l²/c², and drops the absences of
+    P6₃/mmc: the hh(-2h)l family, and with it 000l, needs l even. The
+    family appears as (h, k) = (h, h), (h, -2h) and (-2h, h) up to sign.
+    Matches cctbx's build_miller_set for the same cell and space group,
+    which is what DIALS masks.
+    """
+    h_max = int(ICE_CELL_A / d_min) + 2
+    l_max = int(ICE_CELL_C / d_min) + 2
+    spacings = set()
+    for h in range(-h_max, h_max + 1):
+        for k in range(-h_max, h_max + 1):
+            for l in range(l_max + 1):  # noqa: E741 - Miller index
+                if h == k == l == 0:
+                    continue
+                if (h == k or k == -2 * h or h == -2 * k) and l % 2:
+                    continue
+                inverse_d_squared = (
+                    4.0 * (h * h + h * k + k * k) / (3.0 * ICE_CELL_A**2)
+                    + l * l / ICE_CELL_C**2
+                )
+                d = 1.0 / math.sqrt(inverse_d_squared)
+                if d >= d_min:
+                    # Rounding merges symmetry equivalents that differ only
+                    # in floating-point noise.
+                    spacings.add(round(d, 6))
+    return sorted(spacings, reverse=True)
+
+
+def _ice_ring_radii(grid: CodeGrid, style: DiffractionStyle) -> list[float]:
+    """Return the normalised radii of the ice rings that reach the symbol.
+
+    The limit is the resolution at the symbol's outer corner, half a
+    module beyond the corner module's centre.
+    """
+    r_edge = (grid.corner_distance + math.sqrt(0.5)) / grid.corner_distance
+    radii = (ring_radius(d, style) for d in ice_d_spacings(resolution(r_edge, style)))
+    return [r for r in radii if r is not None]
 
 
 def _encode(url: str) -> CodeGrid:
@@ -235,6 +360,58 @@ def _encode(url: str) -> CodeGrid:
     )
 
 
+def _ice_ring_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]:
+    """Draw the ice rings as pale annuli, clipped to the symbol.
+
+    The clip is the symbol square with the finder and alignment squares cut
+    out, so the quiet zone and the patterns' light gaps stay white.
+    """
+    if not style.ice_rings:
+        return []
+
+    # One subpath per reserved square, wound against the symbol square so
+    # each is a hole under both the nonzero and even-odd rules; cairosvg
+    # ignores clip-rule, so the winding alone has to carry it.
+    holes = [
+        f"M{x - half} {y - half}v{2 * half + 1}h{2 * half + 1}v{-(2 * half + 1)}z"
+        for centres, half in (
+            (grid.finders, FINDER_HALF_WIDTH),
+            (grid.alignments, ALIGNMENT_HALF_WIDTH),
+        )
+        for x, y in centres
+    ]
+    n = grid.size
+    out = [
+        f'<clipPath id="ice-clip"><path d="M0 0H{n}V{n}H0Z{"".join(holes)}"/>'
+        "</clipPath>",
+        f'<g clip-path="url(#ice-clip)" fill="none" stroke="{style.ice_ring_colour}" '
+        f'stroke-width="{style.ice_ring_width:g}">',
+    ]
+
+    # Ring centres sit on the symbol centre, which in SVG coordinates is
+    # half the side.
+    for r in _ice_ring_radii(grid, style):
+        out.append(
+            f'<circle cx="{n / 2:g}" cy="{n / 2:g}" r="{r * grid.corner_distance:.3f}"/>'
+        )
+    out.append("</g>")
+    return out
+
+
+def _ice_boost(r: float, ring_radii: list[float], half_width: float) -> float:
+    """Return the fractional diameter growth of a spot at normalised radius
+    ``r``: ICE_SPOT_BOOST on a ring's centre line, tapering linearly to
+    zero at its edge, ``half_width`` away."""
+    return max(
+        (
+            ICE_SPOT_BOOST * (1.0 - abs(r - ring) / half_width)
+            for ring in ring_radii
+            if abs(r - ring) < half_width
+        ),
+        default=0.0,
+    )
+
+
 def _spot_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]:
     """Draw a spot in every dark data module and speckle in some light ones.
 
@@ -242,6 +419,8 @@ def _spot_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]
     so renders recorded before the layers were split stay reproducible.
     """
     rng = random.Random(seed)
+    ring_radii = _ice_ring_radii(grid, style) if style.ice_rings else []
+    ring_half_width = style.ice_ring_width / 2.0 / grid.corner_distance
     out = []
     for y in range(grid.size):
         for x in range(grid.size):
@@ -260,6 +439,12 @@ def _spot_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[str]
                 )
                 d *= 1.0 + rng.uniform(-style.spot_jitter, style.spot_jitter)
                 d = max(d, SAFE_SPOT_DIAMETER)
+
+                # Spots on an ice ring grow, up to the cap; a spot already
+                # past the cap is left as it is rather than shrunk.
+                boost = _ice_boost(r, ring_radii, ring_half_width)
+                if boost > 0.0:
+                    d = min(d * (1.0 + boost), max(d, ICE_SPOT_CAP))
                 out.append(
                     f'<circle cx="{cx:.2f}" cy="{cy:.2f}" r="{d / 2:.3f}" '
                     f'fill="{style.spot_colour}"/>'
@@ -294,7 +479,7 @@ def _pattern_layer(grid: CodeGrid, style: DiffractionStyle, seed: int) -> list[s
 Layer = Callable[[CodeGrid, DiffractionStyle, int], list[str]]
 
 # Layers in drawing order, bottom first.
-LAYERS: tuple[Layer, ...] = (_spot_layer, _pattern_layer)
+LAYERS: tuple[Layer, ...] = (_ice_ring_layer, _spot_layer, _pattern_layer)
 
 
 def build(

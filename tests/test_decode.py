@@ -23,9 +23,10 @@ URL_VERSIONS = {
 }
 URLS = list(URL_VERSIONS)
 
-# SHA-256 of build("https://dials.github.io", seed=0).svg, produced by the
-# original script at commit e44782f and checked byte-identical to it.
-SEED_0_SHA256 = "da9e2000640312a40711e28dc57dd2e984e2bd635adeeb1d079f2209fa1ad962"
+# SHA-256 of build("https://dials.github.io", seed=0).svg with ice rings,
+# recorded when they were added; the spot jitter and speckle still match
+# the original script at commit e44782f.
+SEED_0_SHA256 = "73c6c3d622a3b195a8785e1f3b1c737025c72321e4c86ae481c2504c246c5844"
 
 
 # The default render must not change by accident; a deliberate change
